@@ -3,6 +3,8 @@ syntax = "proto3";
 import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
 
+option go_package = "github.com/Wappsto/wedge-api/go/wedgepb";
+
 package wedge;
 
 // The  Wedge service definition.
