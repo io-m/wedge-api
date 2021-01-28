@@ -1,6 +1,6 @@
 ## Wappsto on the edge (Wedge) API
 
-Communication is is based using (gRPC)[https://grpc.io/] remote RPC (Remote Procedure Call) framework and Protocol Buffers (aka protobuf)[https://developers.google.com/protocol-buffers/] library. Language neutral data structues, in our case 'protobuf' directory contain files 'node.proto' and 'wedge.proto', are converted to python or other language data types. It become as a contract between client and server, even they _speak_ different languages. 
+Communication is is based using (gRPC)[https://grpc.io/] remote RPC (Remote Procedure Call) framework and Protocol Buffers (aka protobuf)[https://developers.google.com/protocol-buffers/] library. It is a library for creating language neutral data structures, in our case 'protobuf' directory contain files 'node.proto' and 'wedge.proto',which can be converted to python or other language data types. It become as a contract between client and server, even they _speak_ different languages. 
 
 ## How to build
 
