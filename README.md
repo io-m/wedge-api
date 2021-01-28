@@ -4,7 +4,7 @@ Communication is is based using (gRPC)[https://grpc.io/] remote RPC (Remote Proc
 
 ## How to build
 
-Prigeneration of python data types and mothods for RPC.
+Pregeneration of python data types and mothods for RPC.
 
 ```bash
 cd python; make
