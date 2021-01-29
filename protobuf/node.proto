@@ -1,7 +1,5 @@
 syntax = "proto3";
 
-import "google/protobuf/empty.proto";
-
 option go_package = "github.com/Wappsto/wedge-api/go/wedgepb";
 
 package node;
