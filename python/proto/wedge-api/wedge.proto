@@ -1,19 +1,21 @@
 syntax = "proto3";
 
-import "google/protobuf/empty.proto";
+// import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/Wappsto/wedge-api/go/wedgepb";
 
 package wedge;
 
 // The  Wedge service definition.
 service Wedge {
-  rpc SetModel (SetModelRequest) returns (google.protobuf.Empty) {}
-  rpc SetDevice (SetDeviceRequest) returns (google.protobuf.Empty) {}
-  rpc SetValue (SetValueRequest) returns (google.protobuf.Empty) {}
-  rpc SetState (SetStateRequest) returns (google.protobuf.Empty) {}
+  rpc SetModel (SetModelRequest) returns (Replay) {}
+  rpc SetDevice (SetDeviceRequest) returns (Replay) {}
+  rpc SetValue (SetValueRequest) returns (Replay) {}
+  rpc SetState (SetStateRequest) returns (Replay) {}
 }
 
-enum StatusType {
+enum StateType {
     Report = 0;
     Control = 1;
 }
@@ -21,16 +23,25 @@ enum StatusType {
 message State {
     uint32 id  = 1;
     string data = 2;
-    StatusType type = 3;
+    StateType type = 3;
     google.protobuf.Timestamp timestamp = 4;
     string status = 5;
 }
 
+enum NumberMapping {
+    off = 0;
+    on = 1;
+}
+
 message Number {
-    float min = 1;
-    float max = 2;
-    float step = 3;
-    string unit = 4;
+    float min = 1;   // required
+    float max = 2;   // required
+    float step = 3;  // required
+    string unit = 4;  
+    string si_conversion = 5;
+    bool ordered_mapping = 6;
+    bool meaningful_zero = 7;
+    NumberMapping mapping = 8;
 }
 
 message String {
@@ -43,28 +54,48 @@ message Blob {
     string encoding = 2;
 }
 
+message Info {
+    bool enabled = 1;
+}
+
+enum ValueStatus {
+    ok = 0;
+    update = 1;
+    pending = 2;
+}
+
 message Value {
     uint32 id = 1;
     string name = 2;
     string type = 3;
-    string permission = 4;
-    string status = 5;
+    string period = 4;
+    string delta = 5;
+    string permission = 6;
+    string description = 7;
+    ValueStatus status = 8;
     oneof valuetype {
-        Number number = 6;
-        String string = 7;
-        Blob blob = 8;
+        Number number = 9;
+        String string = 10;
+        Blob blob = 11;
     }   
-    repeated State state = 9;
+    repeated State state = 12;
+    Info info = 13;
 }
 
 message Device {
     uint32 id = 1;
     string name = 2;
-    string serial = 3;
-    string manufacturer = 4;
-    string product = 5;
-    string version = 6;
-    repeated Value value = 7;
+    string manufacturer = 3;
+    string product = 4;
+    string version = 5;
+    string serial = 6;
+    string description= 7;
+    string protocol = 8;
+    string communication= 9;
+    uint32 control_timeout = 10;
+    bool control_when_offline = 11;
+    repeated Value value = 12;
+    Info info = 13;
 }
 
 message Me {
@@ -100,3 +131,6 @@ message SetStateRequest {
     State state = 4;
 }
 
+message Replay {
+    bool ok = 1;
+}

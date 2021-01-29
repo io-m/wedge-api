@@ -18,9 +18,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='wedge-api/node.proto',
   package='node',
   syntax='proto3',
-  serialized_options=None,
+  serialized_options=b'Z\'github.com/Wappsto/wedge-api/go/wedgepb',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x14wedge-api/node.proto\x12\x04node\x1a\x1bgoogle/protobuf/empty.proto\"U\n\x12UpdateStateRequest\x12\x1a\n\x05state\x18\x01 \x01(\x0b\x32\x0b.node.State\x12\x11\n\tdevice_id\x18\x02 \x01(\r\x12\x10\n\x08value_id\x18\x03 \x01(\r\"!\n\x05State\x12\n\n\x02id\x18\x01 \x01(\r\x12\x0c\n\x04\x64\x61ta\x18\x02 \x01(\t2I\n\x04Node\x12\x41\n\x0bUpdateState\x12\x18.node.UpdateStateRequest\x1a\x16.google.protobuf.Empty\"\x00\x62\x06proto3'
+  serialized_pb=b'\n\x14wedge-api/node.proto\x12\x04node\x1a\x1bgoogle/protobuf/empty.proto\"U\n\x12UpdateStateRequest\x12\x1a\n\x05state\x18\x01 \x01(\x0b\x32\x0b.node.State\x12\x11\n\tdevice_id\x18\x02 \x01(\r\x12\x10\n\x08value_id\x18\x03 \x01(\r\"(\n\x13\x44\x65leteDeviceRequest\x12\x11\n\tdevice_id\x18\x01 \x01(\r\"!\n\x05State\x12\n\n\x02id\x18\x01 \x01(\r\x12\x0c\n\x04\x64\x61ta\x18\x02 \x01(\t\"\x14\n\x06Replay\x12\n\n\x02ok\x18\x01 \x01(\x08\x32z\n\x04Node\x12\x37\n\x0bUpdateState\x12\x18.node.UpdateStateRequest\x1a\x0c.node.Replay\"\x00\x12\x39\n\x0c\x44\x65leteDevice\x12\x19.node.DeleteDeviceRequest\x1a\x0c.node.Replay\"\x00\x42)Z\'github.com/Wappsto/wedge-api/go/wedgepbb\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,])
 
@@ -73,6 +73,38 @@ _UPDATESTATEREQUEST = _descriptor.Descriptor(
 )
 
 
+_DELETEDEVICEREQUEST = _descriptor.Descriptor(
+  name='DeleteDeviceRequest',
+  full_name='node.DeleteDeviceRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='device_id', full_name='node.DeleteDeviceRequest.device_id', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=146,
+  serialized_end=186,
+)
+
+
 _STATE = _descriptor.Descriptor(
   name='State',
   full_name='node.State',
@@ -107,13 +139,47 @@ _STATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=146,
-  serialized_end=179,
+  serialized_start=188,
+  serialized_end=221,
+)
+
+
+_REPLAY = _descriptor.Descriptor(
+  name='Replay',
+  full_name='node.Replay',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='ok', full_name='node.Replay.ok', index=0,
+      number=1, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=223,
+  serialized_end=243,
 )
 
 _UPDATESTATEREQUEST.fields_by_name['state'].message_type = _STATE
 DESCRIPTOR.message_types_by_name['UpdateStateRequest'] = _UPDATESTATEREQUEST
+DESCRIPTOR.message_types_by_name['DeleteDeviceRequest'] = _DELETEDEVICEREQUEST
 DESCRIPTOR.message_types_by_name['State'] = _STATE
+DESCRIPTOR.message_types_by_name['Replay'] = _REPLAY
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 UpdateStateRequest = _reflection.GeneratedProtocolMessageType('UpdateStateRequest', (_message.Message,), {
@@ -123,6 +189,13 @@ UpdateStateRequest = _reflection.GeneratedProtocolMessageType('UpdateStateReques
   })
 _sym_db.RegisterMessage(UpdateStateRequest)
 
+DeleteDeviceRequest = _reflection.GeneratedProtocolMessageType('DeleteDeviceRequest', (_message.Message,), {
+  'DESCRIPTOR' : _DELETEDEVICEREQUEST,
+  '__module__' : 'wedge_api.node_pb2'
+  # @@protoc_insertion_point(class_scope:node.DeleteDeviceRequest)
+  })
+_sym_db.RegisterMessage(DeleteDeviceRequest)
+
 State = _reflection.GeneratedProtocolMessageType('State', (_message.Message,), {
   'DESCRIPTOR' : _STATE,
   '__module__' : 'wedge_api.node_pb2'
@@ -130,7 +203,15 @@ State = _reflection.GeneratedProtocolMessageType('State', (_message.Message,), {
   })
 _sym_db.RegisterMessage(State)
 
+Replay = _reflection.GeneratedProtocolMessageType('Replay', (_message.Message,), {
+  'DESCRIPTOR' : _REPLAY,
+  '__module__' : 'wedge_api.node_pb2'
+  # @@protoc_insertion_point(class_scope:node.Replay)
+  })
+_sym_db.RegisterMessage(Replay)
 
+
+DESCRIPTOR._options = None
 
 _NODE = _descriptor.ServiceDescriptor(
   name='Node',
@@ -139,8 +220,8 @@ _NODE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=181,
-  serialized_end=254,
+  serialized_start=245,
+  serialized_end=367,
   methods=[
   _descriptor.MethodDescriptor(
     name='UpdateState',
@@ -148,7 +229,17 @@ _NODE = _descriptor.ServiceDescriptor(
     index=0,
     containing_service=None,
     input_type=_UPDATESTATEREQUEST,
-    output_type=google_dot_protobuf_dot_empty__pb2._EMPTY,
+    output_type=_REPLAY,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='DeleteDevice',
+    full_name='node.Node.DeleteDevice',
+    index=1,
+    containing_service=None,
+    input_type=_DELETEDEVICEREQUEST,
+    output_type=_REPLAY,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),

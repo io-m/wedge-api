@@ -27,8 +27,8 @@ Uplink class holds all remote Wedge Methods
 """
 
 # alias for state type: 'Control' or 'Report'
-control_state = wedge_pb2.StatusType.Control
-report_state = wedge_pb2.StatusType.Report
+control_state = wedge_pb2.StateType.Control
+report_state = wedge_pb2.StateType.Report
 
 myIdentity = wedge_pb2.Me(
     host="127.0.0.1",
@@ -85,8 +85,7 @@ class Uplink:
         # metadata is optional, it just for test purpose.
         metadata = [('ip', '127.0.0.1')]
         request = wedge_pb2.SetModelRequest(model=model)
-        resp = self.stub.SetModel(request, metadata=metadata)
-        print(resp)
+        return self.stub.SetModel(request=request, metadata=metadata)
 
     def SetState(self, request):
         resp = self.stub.SetState(
@@ -102,11 +101,17 @@ class Uplink:
 
 class TheNode(node_pb2_grpc.NodeServicer):
 
+    def __init__(self, *args, **kwargs):
+        pass
+
     # method will be called from wedge
-    def ControlState(self, request):
-        print("Got request id {}, data: {}"
-              .format(request.net_id, request.data))
-        return node_pb2.ControlReply(ok=True)
+    def UpdateState(self, request, context):
+        print("__UpdateState__")
+        return node_pb2.Replay(ok=True)
+
+    def DeleteDevice(self, request, context):
+        print("__DeleteDevice__")
+        return node_pb2.Replay(ok=True)
 
 
 """
@@ -143,7 +148,8 @@ async def driverLoop():
                 data=data
             ),
         )
-        uplink.SetState(req)
+        resp = uplink.SetState(req)
+        logging.info("Response: {}".format(resp))
         await asyncio.sleep(5)
 
 

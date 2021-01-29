@@ -2,7 +2,6 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
 from wedge_api import wedge_pb2 as wedge__api_dot_wedge__pb2
 
 
@@ -19,22 +18,22 @@ class WedgeStub(object):
         self.SetModel = channel.unary_unary(
                 '/wedge.Wedge/SetModel',
                 request_serializer=wedge__api_dot_wedge__pb2.SetModelRequest.SerializeToString,
-                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+                response_deserializer=wedge__api_dot_wedge__pb2.Replay.FromString,
                 )
         self.SetDevice = channel.unary_unary(
                 '/wedge.Wedge/SetDevice',
                 request_serializer=wedge__api_dot_wedge__pb2.SetDeviceRequest.SerializeToString,
-                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+                response_deserializer=wedge__api_dot_wedge__pb2.Replay.FromString,
                 )
         self.SetValue = channel.unary_unary(
                 '/wedge.Wedge/SetValue',
                 request_serializer=wedge__api_dot_wedge__pb2.SetValueRequest.SerializeToString,
-                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+                response_deserializer=wedge__api_dot_wedge__pb2.Replay.FromString,
                 )
         self.SetState = channel.unary_unary(
                 '/wedge.Wedge/SetState',
                 request_serializer=wedge__api_dot_wedge__pb2.SetStateRequest.SerializeToString,
-                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+                response_deserializer=wedge__api_dot_wedge__pb2.Replay.FromString,
                 )
 
 
@@ -72,22 +71,22 @@ def add_WedgeServicer_to_server(servicer, server):
             'SetModel': grpc.unary_unary_rpc_method_handler(
                     servicer.SetModel,
                     request_deserializer=wedge__api_dot_wedge__pb2.SetModelRequest.FromString,
-                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+                    response_serializer=wedge__api_dot_wedge__pb2.Replay.SerializeToString,
             ),
             'SetDevice': grpc.unary_unary_rpc_method_handler(
                     servicer.SetDevice,
                     request_deserializer=wedge__api_dot_wedge__pb2.SetDeviceRequest.FromString,
-                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+                    response_serializer=wedge__api_dot_wedge__pb2.Replay.SerializeToString,
             ),
             'SetValue': grpc.unary_unary_rpc_method_handler(
                     servicer.SetValue,
                     request_deserializer=wedge__api_dot_wedge__pb2.SetValueRequest.FromString,
-                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+                    response_serializer=wedge__api_dot_wedge__pb2.Replay.SerializeToString,
             ),
             'SetState': grpc.unary_unary_rpc_method_handler(
                     servicer.SetState,
                     request_deserializer=wedge__api_dot_wedge__pb2.SetStateRequest.FromString,
-                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+                    response_serializer=wedge__api_dot_wedge__pb2.Replay.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -113,7 +112,7 @@ class Wedge(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/wedge.Wedge/SetModel',
             wedge__api_dot_wedge__pb2.SetModelRequest.SerializeToString,
-            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+            wedge__api_dot_wedge__pb2.Replay.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -130,7 +129,7 @@ class Wedge(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/wedge.Wedge/SetDevice',
             wedge__api_dot_wedge__pb2.SetDeviceRequest.SerializeToString,
-            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+            wedge__api_dot_wedge__pb2.Replay.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -147,7 +146,7 @@ class Wedge(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/wedge.Wedge/SetValue',
             wedge__api_dot_wedge__pb2.SetValueRequest.SerializeToString,
-            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+            wedge__api_dot_wedge__pb2.Replay.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -164,6 +163,6 @@ class Wedge(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/wedge.Wedge/SetState',
             wedge__api_dot_wedge__pb2.SetStateRequest.SerializeToString,
-            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+            wedge__api_dot_wedge__pb2.Replay.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
