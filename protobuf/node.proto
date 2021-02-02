@@ -2,6 +2,8 @@ syntax = "proto3";
 
 option go_package = "github.com/Wappsto/wedge-api/go/nodepb";
 
+import "common.proto";
+
 package node;
 
 // The node service definition.
@@ -20,11 +22,13 @@ message DeleteDeviceRequest {
     uint32 device_id = 1;
 }
 
-message State {
-    uint32 id  = 1;
-    string data = 2;
-}
-
-message Replay {
-    bool ok = 1;
-}
+/*
+ *message State {
+ *    uint32 id  = 1;
+ *    string data = 2;
+ *}
+ *
+ *message Replay {
+ *    bool ok = 1;
+ *}
+ */

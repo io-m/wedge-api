@@ -11,5 +11,6 @@ pre-build:
 	mkdir -p nodepb
 
 build:
-	protoc -I=../protobuf/wedge  --go_out=plugins=grpc,paths=source_relative:./wedgepb wedge.proto
-	protoc -I=../protobuf/node  --go_out=plugins=grpc,paths=source_relative:./nodepb node.proto
+	protoc -I=../protobuf  --go_out=plugins=grpc,paths=source_relative:./ common.proto
+	protoc -I=../protobuf  --go_out=plugins=grpc,paths=source_relative:./ wedge.proto
+	protoc -I=../protobuf  --go_out=plugins=grpc,paths=source_relative:./ node.proto

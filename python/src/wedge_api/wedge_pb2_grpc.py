@@ -2,7 +2,8 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from wedge_api import wedge_pb2 as wedge__api_dot_wedge__pb2
+import common_pb2 as common__pb2
+import wedge_pb2 as wedge__pb2
 
 
 class WedgeStub(object):
@@ -17,23 +18,23 @@ class WedgeStub(object):
         """
         self.SetModel = channel.unary_unary(
                 '/wedge.Wedge/SetModel',
-                request_serializer=wedge__api_dot_wedge__pb2.SetModelRequest.SerializeToString,
-                response_deserializer=wedge__api_dot_wedge__pb2.Replay.FromString,
+                request_serializer=wedge__pb2.SetModelRequest.SerializeToString,
+                response_deserializer=common__pb2.Replay.FromString,
                 )
         self.SetDevice = channel.unary_unary(
                 '/wedge.Wedge/SetDevice',
-                request_serializer=wedge__api_dot_wedge__pb2.SetDeviceRequest.SerializeToString,
-                response_deserializer=wedge__api_dot_wedge__pb2.Replay.FromString,
+                request_serializer=wedge__pb2.SetDeviceRequest.SerializeToString,
+                response_deserializer=common__pb2.Replay.FromString,
                 )
         self.SetValue = channel.unary_unary(
                 '/wedge.Wedge/SetValue',
-                request_serializer=wedge__api_dot_wedge__pb2.SetValueRequest.SerializeToString,
-                response_deserializer=wedge__api_dot_wedge__pb2.Replay.FromString,
+                request_serializer=wedge__pb2.SetValueRequest.SerializeToString,
+                response_deserializer=common__pb2.Replay.FromString,
                 )
         self.SetState = channel.unary_unary(
                 '/wedge.Wedge/SetState',
-                request_serializer=wedge__api_dot_wedge__pb2.SetStateRequest.SerializeToString,
-                response_deserializer=wedge__api_dot_wedge__pb2.Replay.FromString,
+                request_serializer=wedge__pb2.SetStateRequest.SerializeToString,
+                response_deserializer=common__pb2.Replay.FromString,
                 )
 
 
@@ -70,23 +71,23 @@ def add_WedgeServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'SetModel': grpc.unary_unary_rpc_method_handler(
                     servicer.SetModel,
-                    request_deserializer=wedge__api_dot_wedge__pb2.SetModelRequest.FromString,
-                    response_serializer=wedge__api_dot_wedge__pb2.Replay.SerializeToString,
+                    request_deserializer=wedge__pb2.SetModelRequest.FromString,
+                    response_serializer=common__pb2.Replay.SerializeToString,
             ),
             'SetDevice': grpc.unary_unary_rpc_method_handler(
                     servicer.SetDevice,
-                    request_deserializer=wedge__api_dot_wedge__pb2.SetDeviceRequest.FromString,
-                    response_serializer=wedge__api_dot_wedge__pb2.Replay.SerializeToString,
+                    request_deserializer=wedge__pb2.SetDeviceRequest.FromString,
+                    response_serializer=common__pb2.Replay.SerializeToString,
             ),
             'SetValue': grpc.unary_unary_rpc_method_handler(
                     servicer.SetValue,
-                    request_deserializer=wedge__api_dot_wedge__pb2.SetValueRequest.FromString,
-                    response_serializer=wedge__api_dot_wedge__pb2.Replay.SerializeToString,
+                    request_deserializer=wedge__pb2.SetValueRequest.FromString,
+                    response_serializer=common__pb2.Replay.SerializeToString,
             ),
             'SetState': grpc.unary_unary_rpc_method_handler(
                     servicer.SetState,
-                    request_deserializer=wedge__api_dot_wedge__pb2.SetStateRequest.FromString,
-                    response_serializer=wedge__api_dot_wedge__pb2.Replay.SerializeToString,
+                    request_deserializer=wedge__pb2.SetStateRequest.FromString,
+                    response_serializer=common__pb2.Replay.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -111,8 +112,8 @@ class Wedge(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/wedge.Wedge/SetModel',
-            wedge__api_dot_wedge__pb2.SetModelRequest.SerializeToString,
-            wedge__api_dot_wedge__pb2.Replay.FromString,
+            wedge__pb2.SetModelRequest.SerializeToString,
+            common__pb2.Replay.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -128,8 +129,8 @@ class Wedge(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/wedge.Wedge/SetDevice',
-            wedge__api_dot_wedge__pb2.SetDeviceRequest.SerializeToString,
-            wedge__api_dot_wedge__pb2.Replay.FromString,
+            wedge__pb2.SetDeviceRequest.SerializeToString,
+            common__pb2.Replay.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -145,8 +146,8 @@ class Wedge(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/wedge.Wedge/SetValue',
-            wedge__api_dot_wedge__pb2.SetValueRequest.SerializeToString,
-            wedge__api_dot_wedge__pb2.Replay.FromString,
+            wedge__pb2.SetValueRequest.SerializeToString,
+            common__pb2.Replay.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -162,7 +163,7 @@ class Wedge(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/wedge.Wedge/SetState',
-            wedge__api_dot_wedge__pb2.SetStateRequest.SerializeToString,
-            wedge__api_dot_wedge__pb2.Replay.FromString,
+            wedge__pb2.SetStateRequest.SerializeToString,
+            common__pb2.Replay.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
