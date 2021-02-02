@@ -11,11 +11,13 @@ import sys
 import signal
 import grpc
 # pregenerated from proto file
-from wedge_api import node_pb2
-from wedge_api import node_pb2_grpc
+# import wedge_api.node_pb2
+# import wedge_api.common_pb2
 
-from wedge_api import wedge_pb2_grpc
-from wedge_api import wedge_pb2
+import common_pb2
+import wedge_pb2
+import node_pb2_grpc
+import wedge_pb2_grpc
 
 
 def signal_handler(signal, frame):
@@ -42,7 +44,7 @@ model = wedge_pb2.Model(
         id=1,
         name="water_control",
         version="0.1.2",
-        meta=wedge_pb2.Meta(
+        meta=common_pb2.Meta(
             id="e2d4a058-4a56-4de5-a352-569ed7ba811e",
             type="device",
             version="2.0"
@@ -57,12 +59,12 @@ model = wedge_pb2.Model(
                 step=0.1
             ),
             state=[
-                wedge_pb2.State(
+                common_pb2.State(
                     id=1,
                     data="10",
                     type="Control"
                 ),
-                wedge_pb2.State(
+                common_pb2.State(
                     id=2,
                     data="3",
                     type="Report"
