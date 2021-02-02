@@ -8,7 +8,8 @@ requirements:
 
 pre-build:
 	mkdir -p wedgepb
+	mkdir -p nodepb
 
 build:
-	protoc -I=../protobuf  --go_out=plugins=grpc,paths=source_relative:./wedgepb wedge.proto
-	protoc -I=../protobuf  --go_out=plugins=grpc,paths=source_relative:./wedgepb node.proto
+	protoc -I=../protobuf/wedge  --go_out=plugins=grpc,paths=source_relative:./wedgepb wedge.proto
+	protoc -I=../protobuf/node  --go_out=plugins=grpc,paths=source_relative:./nodepb node.proto

@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option go_package = "github.com/Wappsto/wedge-api/go/wedgepb";
+option go_package = "github.com/Wappsto/wedge-api/go/nodepb";
 
 package node;
 
