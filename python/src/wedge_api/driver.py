@@ -151,7 +151,7 @@ async def driverLoop():
             driver=myIdentity,
             device_id=1,
             value_id=1,
-            state=wedge_pb2.State(
+            state=common_pb2.State(
                 id=2,
                 data=data
             ),
