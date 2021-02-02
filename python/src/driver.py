@@ -27,21 +27,26 @@ Uplink class holds all remote Wedge Methods
 """
 
 # alias for state type: 'Control' or 'Report'
-control_state = wedge_pb2.StateType.Control
-report_state = wedge_pb2.StateType.Report
+# control_state = wedge_pb2.StateType.Control
+# report_state = wedge_pb2.StateType.Report
 
-myIdentity = wedge_pb2.Me(
+myIdentity = wedge_pb2.Driver(
     host="127.0.0.1",
     port=30052,
 )
 
 # Example of Model, which identical to Seluxit data Model.
 model = wedge_pb2.Model(
-    me=myIdentity,
+    driver=myIdentity,
     device=[wedge_pb2.Device(
         id=1,
         name="water_control",
         version="0.1.2",
+        meta=wedge_pb2.Meta(
+            id="e2d4a058-4a56-4de5-a352-569ed7ba811e",
+            type="device",
+            version="2.0"
+        ),
         value=[wedge_pb2.Value(
             id=1,
             name="water_flow",
@@ -55,11 +60,12 @@ model = wedge_pb2.Model(
                 wedge_pb2.State(
                     id=1,
                     data="10",
-                    type=control_state
+                    type="Control"
                 ),
                 wedge_pb2.State(
                     id=2,
-                    data="3"
+                    data="3",
+                    type="Report"
                     #  type=report_state
                     #  by default type is 0, which is Report enum.
                 )
@@ -140,7 +146,7 @@ async def driverLoop():
         data = '33'
         print('Hello from driver..., data: ', data)
         req = wedge_pb2.SetStateRequest(
-            me=myIdentity,
+            driver=myIdentity,
             device_id=1,
             value_id=1,
             state=wedge_pb2.State(
