@@ -10,9 +10,9 @@ import grpc
 
 # pregenerated from proto file
 # from wedge_api import node_pb2
-# from wedge_api import node_pb2_grpc
-from wedge_api import wedge_pb2_grpc
-from wedge_api import wedge_pb2
+import slx_pb2
+import wedge_pb2_grpc
+import wedge_pb2
 
 
 def signal_handler(signal, frame):
@@ -39,7 +39,7 @@ class Wedge(wedge_pb2_grpc.WedgeServicer):
         # context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         # context.set_details('Method not implemented!')
         print(request)
-        return wedge_pb2.Replay(ok=True)
+        return slx_pb2.Replay(ok=True)
 
     def SetDevice(self, request, context):
         # context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -55,7 +55,7 @@ class Wedge(wedge_pb2_grpc.WedgeServicer):
         # context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         # context.set_details('Method not implemented!')
         print(request)
-        return wedge_pb2.Replay(ok=True)
+        return slx_pb2.Replay(ok=True)
 
 
 async def downlinkLoop():

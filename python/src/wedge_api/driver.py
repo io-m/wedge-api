@@ -14,7 +14,7 @@ import grpc
 # import wedge_api.node_pb2
 # import wedge_api.common_pb2
 
-import common_pb2
+import slx_pb2
 import wedge_pb2
 import node_pb2_grpc
 import wedge_pb2_grpc
@@ -40,31 +40,31 @@ myIdentity = wedge_pb2.Driver(
 # Example of Model, which identical to Seluxit data Model.
 model = wedge_pb2.Model(
     driver=myIdentity,
-    device=[wedge_pb2.Device(
+    device=[slx_pb2.Device(
         id=1,
         name="water_control",
         version="0.1.2",
-        meta=common_pb2.Meta(
+        meta=slx_pb2.Meta(
             id="e2d4a058-4a56-4de5-a352-569ed7ba811e",
             type="device",
             version="2.0"
         ),
-        value=[wedge_pb2.Value(
+        value=[slx_pb2.Value(
             id=1,
             name="water_flow",
             permission="rw",
-            number=wedge_pb2.Number(
+            number=slx_pb2.Number(
                 min=0.1,
                 max=25.0,
                 step=0.1
             ),
             state=[
-                common_pb2.State(
+                slx_pb2.State(
                     id=1,
                     data="10",
                     type="Control"
                 ),
-                common_pb2.State(
+                slx_pb2.State(
                     id=2,
                     data="3",
                     type="Report"
@@ -115,11 +115,11 @@ class TheNode(node_pb2_grpc.NodeServicer):
     # method will be called from wedge
     def UpdateState(self, request, context):
         print("__UpdateState__")
-        return node_pb2.Replay(ok=True)
+        return slx_pb2.Replay(ok=True)
 
     def DeleteDevice(self, request, context):
         print("__DeleteDevice__")
-        return node_pb2.Replay(ok=True)
+        return slx_pb2.Replay(ok=True)
 
 
 """
@@ -151,7 +151,7 @@ async def driverLoop():
             driver=myIdentity,
             device_id=1,
             value_id=1,
-            state=common_pb2.State(
+            state=slx_pb2.State(
                 id=2,
                 data=data
             ),

@@ -11,18 +11,18 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-import common_pb2 as common__pb2
+import slx_pb2 as slx__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='node.proto',
   package='node',
   syntax='proto3',
-  serialized_options=b'Z&github.com/Wappsto/wedge-api/go/nodepb',
+  serialized_options=b'Z$github.com/Wappsto/wedge-api/go/node',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\nnode.proto\x12\x04node\x1a\x0c\x63ommon.proto\"P\n\x12UpdateStateRequest\x12\x15\n\x05state\x18\x01 \x01(\x0b\x32\x06.State\x12\x11\n\tdevice_id\x18\x02 \x01(\r\x12\x10\n\x08value_id\x18\x03 \x01(\r\"(\n\x13\x44\x65leteDeviceRequest\x12\x11\n\tdevice_id\x18\x01 \x01(\r2p\n\x04Node\x12\x32\n\x0bUpdateState\x12\x18.node.UpdateStateRequest\x1a\x07.Replay\"\x00\x12\x34\n\x0c\x44\x65leteDevice\x12\x19.node.DeleteDeviceRequest\x1a\x07.Replay\"\x00\x42(Z&github.com/Wappsto/wedge-api/go/nodepbb\x06proto3'
+  serialized_pb=b'\n\nnode.proto\x12\x04node\x1a\tslx.proto\"P\n\x12UpdateStateRequest\x12\x15\n\x05state\x18\x01 \x01(\x0b\x32\x06.State\x12\x11\n\tdevice_id\x18\x02 \x01(\r\x12\x10\n\x08value_id\x18\x03 \x01(\r\"(\n\x13\x44\x65leteDeviceRequest\x12\x11\n\tdevice_id\x18\x01 \x01(\r2p\n\x04Node\x12\x32\n\x0bUpdateState\x12\x18.node.UpdateStateRequest\x1a\x07.Replay\"\x00\x12\x34\n\x0c\x44\x65leteDevice\x12\x19.node.DeleteDeviceRequest\x1a\x07.Replay\"\x00\x42&Z$github.com/Wappsto/wedge-api/go/nodeb\x06proto3'
   ,
-  dependencies=[common__pb2.DESCRIPTOR,])
+  dependencies=[slx__pb2.DESCRIPTOR,])
 
 
 
@@ -68,8 +68,8 @@ _UPDATESTATEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=34,
-  serialized_end=114,
+  serialized_start=31,
+  serialized_end=111,
 )
 
 
@@ -100,11 +100,11 @@ _DELETEDEVICEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=116,
-  serialized_end=156,
+  serialized_start=113,
+  serialized_end=153,
 )
 
-_UPDATESTATEREQUEST.fields_by_name['state'].message_type = common__pb2._STATE
+_UPDATESTATEREQUEST.fields_by_name['state'].message_type = slx__pb2._STATE
 DESCRIPTOR.message_types_by_name['UpdateStateRequest'] = _UPDATESTATEREQUEST
 DESCRIPTOR.message_types_by_name['DeleteDeviceRequest'] = _DELETEDEVICEREQUEST
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -133,8 +133,8 @@ _NODE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=158,
-  serialized_end=270,
+  serialized_start=155,
+  serialized_end=267,
   methods=[
   _descriptor.MethodDescriptor(
     name='UpdateState',
@@ -142,7 +142,7 @@ _NODE = _descriptor.ServiceDescriptor(
     index=0,
     containing_service=None,
     input_type=_UPDATESTATEREQUEST,
-    output_type=common__pb2._REPLAY,
+    output_type=slx__pb2._REPLAY,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
@@ -152,7 +152,7 @@ _NODE = _descriptor.ServiceDescriptor(
     index=1,
     containing_service=None,
     input_type=_DELETEDEVICEREQUEST,
-    output_type=common__pb2._REPLAY,
+    output_type=slx__pb2._REPLAY,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),

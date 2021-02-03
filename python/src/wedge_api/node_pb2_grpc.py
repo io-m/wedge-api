@@ -2,8 +2,8 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-import common_pb2 as common__pb2
 import node_pb2 as node__pb2
+import slx_pb2 as slx__pb2
 
 
 class NodeStub(object):
@@ -19,12 +19,12 @@ class NodeStub(object):
         self.UpdateState = channel.unary_unary(
                 '/node.Node/UpdateState',
                 request_serializer=node__pb2.UpdateStateRequest.SerializeToString,
-                response_deserializer=common__pb2.Replay.FromString,
+                response_deserializer=slx__pb2.Replay.FromString,
                 )
         self.DeleteDevice = channel.unary_unary(
                 '/node.Node/DeleteDevice',
                 request_serializer=node__pb2.DeleteDeviceRequest.SerializeToString,
-                response_deserializer=common__pb2.Replay.FromString,
+                response_deserializer=slx__pb2.Replay.FromString,
                 )
 
 
@@ -50,12 +50,12 @@ def add_NodeServicer_to_server(servicer, server):
             'UpdateState': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdateState,
                     request_deserializer=node__pb2.UpdateStateRequest.FromString,
-                    response_serializer=common__pb2.Replay.SerializeToString,
+                    response_serializer=slx__pb2.Replay.SerializeToString,
             ),
             'DeleteDevice': grpc.unary_unary_rpc_method_handler(
                     servicer.DeleteDevice,
                     request_deserializer=node__pb2.DeleteDeviceRequest.FromString,
-                    response_serializer=common__pb2.Replay.SerializeToString,
+                    response_serializer=slx__pb2.Replay.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -81,7 +81,7 @@ class Node(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/node.Node/UpdateState',
             node__pb2.UpdateStateRequest.SerializeToString,
-            common__pb2.Replay.FromString,
+            slx__pb2.Replay.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -98,6 +98,6 @@ class Node(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/node.Node/DeleteDevice',
             node__pb2.DeleteDeviceRequest.SerializeToString,
-            common__pb2.Replay.FromString,
+            slx__pb2.Replay.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

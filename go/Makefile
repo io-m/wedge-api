@@ -7,11 +7,11 @@ requirements:
 	@go install github.com/golang/protobuf/protoc-gen-go
 
 pre-build:
-	mkdir -p wedgepb
-	mkdir -p nodepb
-	mkdir -p commonpb
+	mkdir -p wedge
+	mkdir -p node
+	mkdir -p slx 
 
 build:
-	protoc -I=../protobuf  --go_out=plugins=grpc,paths=source_relative:./commonpb common.proto
-	protoc -I=../protobuf  --go_out=plugins=grpc,paths=source_relative:./wedgepb wedge.proto
-	protoc -I=../protobuf  --go_out=plugins=grpc,paths=source_relative:./nodepb node.proto
+	protoc -I=../protobuf  --go_out=plugins=grpc,paths=source_relative:./slx slx.proto
+	protoc -I=../protobuf  --go_out=plugins=grpc,paths=source_relative:./wedge wedge.proto
+	protoc -I=../protobuf  --go_out=plugins=grpc,paths=source_relative:./node node.proto

@@ -1,9 +1,9 @@
 syntax = "proto3";
 
 // import "google/protobuf/empty.proto";
-import "common.proto";
+import "slx.proto";
 
-option go_package = "github.com/Wappsto/wedge-api/go/wedgepb";
+option go_package = "github.com/Wappsto/wedge-api/go/wedge";
 
 package wedge;
 
@@ -13,104 +13,6 @@ service Wedge {
   rpc SetDevice (SetDeviceRequest) returns (Replay) {}
   rpc SetValue (SetValueRequest) returns (Replay) {}
   rpc SetState (SetStateRequest) returns (Replay) {}
-}
-
-/*
- *message Meta {
- *    string id = 1;
- *    string type = 2;
- *    string version = 3;
- *}
- */
-
-/*
- *enum StateType {
- *    Report = 0;
- *    Control = 1;
- *}
- */
-
-/*
- *message State {
- *    string data = 1;
- *    string type = 2;
- *    google.protobuf.Timestamp timestamp = 3;
- *    string status = 4;
- *    Meta meta = 5;
- *    uint32 id = 6;
- *}
- */
-
-enum NumberMapping {
-    off = 0;
-    on = 1;
-}
-
-message Number {
-    float min = 1;   // required
-    float max = 2;   // required
-    float step = 3;  // required
-    string unit = 4;  
-    string si_conversion = 5;
-    bool ordered_mapping = 6;
-    bool meaningful_zero = 7;
-    NumberMapping mapping = 8;
-}
-
-message String {
-    float max = 1;
-    string encoding = 2;
-} 
-
-message Blob {
-    float max = 1;
-    string encoding = 2;
-}
-
-message Info {
-    bool enabled = 1;
-}
-
-/*
- *enum ValueStatus {
- *    ok = 0;
- *    update = 1;
- *    pending = 2;
- *}
- */
-
-message Value {
-    string name = 1;
-    string type = 2;
-    string period = 3;
-    string delta = 4;
-    string permission = 5;
-    string description = 6;
-    string status = 7;
-    Number number = 8;
-    String string = 9;
-    Blob blob = 10;
-    repeated State state = 11;
-    Info info = 12;
-    Meta meta = 13;
-    uint32 id = 14;
-}
-
-message Device {
-    string name = 1;
-    string manufacturer = 2;
-    string product = 3;
-    string version = 4;
-    string serial = 5;
-    string description= 6;
-    string protocol = 7;
-    string communication= 8;
-    uint32 control_timeout = 9;
-    bool control_when_offline = 10;
-    repeated Value value = 11;
-    Info info = 12;
-    Meta meta = 13;
-    uint32 id = 14;
 }
 
 message Driver {
@@ -145,15 +47,3 @@ message SetStateRequest {
     uint32 value_id = 3;
     State state = 4;
 }
-
-/*
- *message Error {
- *    string message = 1;
- *    uint32 code = 2;
- *}
- *
- *message Replay {
- *    bool ok = 1;
- *    Error error = 2;
- *}
- */
