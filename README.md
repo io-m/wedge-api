@@ -10,4 +10,5 @@ Pregeneration of python data types and mothods for RPC.
 cd python; make
 ```
 
-Python client/driver example: _'pyhton/src/driver.py'_
+Python client/driver example: _'pyhton/src/wedge-api/driver.py'_
+Dummy server for testing purpose: _'pyhton/src/wedge-api/dummy_server.py'_

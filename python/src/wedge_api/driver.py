@@ -16,6 +16,7 @@ import grpc
 
 import slx_pb2
 import wedge_pb2
+import node_pb2
 import node_pb2_grpc
 import wedge_pb2_grpc
 
@@ -115,6 +116,12 @@ class TheNode(node_pb2_grpc.NodeServicer):
     # method will be called from wedge
     def UpdateState(self, request, context):
         print("__UpdateState__")
+        print("{}".format(request))
+        print("---------------")
+        # print("device id: {}".format_map(request.device_id))
+        # print("value id: {}".format_map(request.value_id))
+        # print("state id: {}".format_map(request.S))
+
         return slx_pb2.Replay(ok=True)
 
     def DeleteDevice(self, request, context):
