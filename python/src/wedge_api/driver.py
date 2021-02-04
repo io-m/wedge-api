@@ -45,11 +45,6 @@ model = wedge_pb2.Model(
         id=1,
         name="water_control",
         version="0.1.2",
-        meta=slx_pb2.Meta(
-            id="e2d4a058-4a56-4de5-a352-569ed7ba811e",
-            type="device",
-            version="2.0"
-        ),
         value=[slx_pb2.Value(
             id=1,
             name="water_flow",
