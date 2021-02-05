@@ -13,6 +13,7 @@ _sym_db = _symbol_database.Default()
 
 import slx_pb2 as slx__pb2
 
+from slx_pb2 import *
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='node.proto',
@@ -20,9 +21,10 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'Z$github.com/Wappsto/wedge-api/go/node',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\nnode.proto\x12\x04node\x1a\tslx.proto\"P\n\x12UpdateStateRequest\x12\x15\n\x05state\x18\x01 \x01(\x0b\x32\x06.State\x12\x11\n\tdevice_id\x18\x02 \x01(\r\x12\x10\n\x08value_id\x18\x03 \x01(\r\"(\n\x13\x44\x65leteDeviceRequest\x12\x11\n\tdevice_id\x18\x01 \x01(\r2p\n\x04Node\x12\x32\n\x0bUpdateState\x12\x18.node.UpdateStateRequest\x1a\x07.Replay\"\x00\x12\x34\n\x0c\x44\x65leteDevice\x12\x19.node.DeleteDeviceRequest\x1a\x07.Replay\"\x00\x42&Z$github.com/Wappsto/wedge-api/go/nodeb\x06proto3'
+  serialized_pb=b'\n\nnode.proto\x12\x04node\x1a\tslx.proto\"P\n\x12UpdateStateRequest\x12\x15\n\x05state\x18\x01 \x01(\x0b\x32\x06.State\x12\x11\n\tdevice_id\x18\x02 \x01(\r\x12\x10\n\x08value_id\x18\x03 \x01(\r\"(\n\x13\x44\x65leteDeviceRequest\x12\x11\n\tdevice_id\x18\x01 \x01(\r2p\n\x04Node\x12\x32\n\x0bUpdateState\x12\x18.node.UpdateStateRequest\x1a\x07.Replay\"\x00\x12\x34\n\x0c\x44\x65leteDevice\x12\x19.node.DeleteDeviceRequest\x1a\x07.Replay\"\x00\x42&Z$github.com/Wappsto/wedge-api/go/nodeP\x00\x62\x06proto3'
   ,
-  dependencies=[slx__pb2.DESCRIPTOR,])
+  dependencies=[slx__pb2.DESCRIPTOR,],
+  public_dependencies=[slx__pb2.DESCRIPTOR,])
 
 
 

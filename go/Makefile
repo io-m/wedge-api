@@ -15,3 +15,4 @@ build:
 	protoc -I=../protobuf  --go_out=plugins=grpc,paths=source_relative:./slx slx.proto
 	protoc -I=../protobuf  --go_out=plugins=grpc,paths=source_relative:./wedge wedge.proto
 	protoc -I=../protobuf  --go_out=plugins=grpc,paths=source_relative:./node node.proto
+	go build -o build/clnode clnode.go
