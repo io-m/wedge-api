@@ -1,2 +1,3 @@
-/pyhton/src/wedge-api/__pycache__
-/go/go.sum
+/python/src/wedge_api/__pycache__/
+/python/src/__pycache__/
+notes.txt

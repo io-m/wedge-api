@@ -2,8 +2,8 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
-from wedge_api import node_pb2 as wedge__api_dot_node__pb2
+import node_pb2 as node__pb2
+import slx_pb2 as slx__pb2
 
 
 class NodeStub(object):
@@ -18,8 +18,13 @@ class NodeStub(object):
         """
         self.UpdateState = channel.unary_unary(
                 '/node.Node/UpdateState',
-                request_serializer=wedge__api_dot_node__pb2.UpdateStateRequest.SerializeToString,
-                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+                request_serializer=node__pb2.UpdateStateRequest.SerializeToString,
+                response_deserializer=slx__pb2.Replay.FromString,
+                )
+        self.DeleteDevice = channel.unary_unary(
+                '/node.Node/DeleteDevice',
+                request_serializer=node__pb2.DeleteDeviceRequest.SerializeToString,
+                response_deserializer=slx__pb2.Replay.FromString,
                 )
 
 
@@ -33,13 +38,24 @@ class NodeServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def DeleteDevice(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_NodeServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'UpdateState': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdateState,
-                    request_deserializer=wedge__api_dot_node__pb2.UpdateStateRequest.FromString,
-                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+                    request_deserializer=node__pb2.UpdateStateRequest.FromString,
+                    response_serializer=slx__pb2.Replay.SerializeToString,
+            ),
+            'DeleteDevice': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteDevice,
+                    request_deserializer=node__pb2.DeleteDeviceRequest.FromString,
+                    response_serializer=slx__pb2.Replay.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -64,7 +80,24 @@ class Node(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/node.Node/UpdateState',
-            wedge__api_dot_node__pb2.UpdateStateRequest.SerializeToString,
-            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+            node__pb2.UpdateStateRequest.SerializeToString,
+            slx__pb2.Replay.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteDevice(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/node.Node/DeleteDevice',
+            node__pb2.DeleteDeviceRequest.SerializeToString,
+            slx__pb2.Replay.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

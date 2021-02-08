@@ -11,11 +11,14 @@ import sys
 import signal
 import grpc
 # pregenerated from proto file
-from wedge_api import node_pb2
-from wedge_api import node_pb2_grpc
+# import wedge_api.node_pb2
+# import wedge_api.common_pb2
 
-from wedge_api import wedge_pb2_grpc
-from wedge_api import wedge_pb2
+# import slx_pb2
+import wedge_pb2
+# import node_pb2
+import node_pb2_grpc
+import wedge_pb2_grpc
 
 
 def signal_handler(signal, frame):
@@ -27,17 +30,17 @@ Uplink class holds all remote Wedge Methods
 """
 
 # alias for state type: 'Control' or 'Report'
-control_state = wedge_pb2.StatusType.Control
-report_state = wedge_pb2.StatusType.Report
+# control_state = wedge_pb2.StateType.Control
+# report_state = wedge_pb2.StateType.Report
 
-myIdentity = wedge_pb2.Me(
+myIdentity = wedge_pb2.Driver(
     host="127.0.0.1",
     port=30052,
 )
 
 # Example of Model, which identical to Seluxit data Model.
 model = wedge_pb2.Model(
-    me=myIdentity,
+    driver=myIdentity,
     device=[wedge_pb2.Device(
         id=1,
         name="water_control",
@@ -55,11 +58,12 @@ model = wedge_pb2.Model(
                 wedge_pb2.State(
                     id=1,
                     data="10",
-                    type=control_state
+                    type="Control"
                 ),
                 wedge_pb2.State(
                     id=2,
-                    data="3"
+                    data="3",
+                    type="Report"
                     #  type=report_state
                     #  by default type is 0, which is Report enum.
                 )
@@ -85,8 +89,7 @@ class Uplink:
         # metadata is optional, it just for test purpose.
         metadata = [('ip', '127.0.0.1')]
         request = wedge_pb2.SetModelRequest(model=model)
-        resp = self.stub.SetModel(request, metadata=metadata)
-        print(resp)
+        return self.stub.SetModel(request=request, metadata=metadata)
 
     def SetState(self, request):
         resp = self.stub.SetState(
@@ -102,11 +105,23 @@ class Uplink:
 
 class TheNode(node_pb2_grpc.NodeServicer):
 
+    def __init__(self, *args, **kwargs):
+        pass
+
     # method will be called from wedge
-    def ControlState(self, request):
-        print("Got request id {}, data: {}"
-              .format(request.net_id, request.data))
-        return node_pb2.ControlReply(ok=True)
+    def UpdateState(self, request, context):
+        print("__UpdateState__")
+        print("{}".format(request))
+        print("---------------")
+        # print("device id: {}".format_map(request.device_id))
+        # print("value id: {}".format_map(request.value_id))
+        # print("state id: {}".format_map(request.S))
+
+        return wedge_pb2.Replay(ok=True)
+
+    def DeleteDevice(self, request, context):
+        print("__DeleteDevice__")
+        return wedge_pb2.Replay(ok=True)
 
 
 """
@@ -135,7 +150,7 @@ async def driverLoop():
         data = '33'
         print('Hello from driver..., data: ', data)
         req = wedge_pb2.SetStateRequest(
-            me=myIdentity,
+            driver=myIdentity,
             device_id=1,
             value_id=1,
             state=wedge_pb2.State(
@@ -143,7 +158,8 @@ async def driverLoop():
                 data=data
             ),
         )
-        uplink.SetState(req)
+        resp = uplink.SetState(req)
+        logging.info("Response: {}".format(resp))
         await asyncio.sleep(5)
 
 

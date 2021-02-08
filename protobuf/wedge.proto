@@ -1,81 +1,27 @@
 syntax = "proto3";
 
-import "google/protobuf/empty.proto";
-import "google/protobuf/timestamp.proto";
+// import "google/protobuf/empty.proto";
+import public "slx.proto";
 
-option go_package = "github.com/Wappsto/wedge-api/go/wedgepb";
+option go_package = "github.com/Wappsto/wedge-api/go/wedge";
 
 package wedge;
 
 // The  Wedge service definition.
 service Wedge {
-  rpc SetModel (SetModelRequest) returns (google.protobuf.Empty) {}
-  rpc SetDevice (SetDeviceRequest) returns (google.protobuf.Empty) {}
-  rpc SetValue (SetValueRequest) returns (google.protobuf.Empty) {}
-  rpc SetState (SetStateRequest) returns (google.protobuf.Empty) {}
+  rpc SetModel (SetModelRequest) returns (Replay) {}
+  rpc SetDevice (SetDeviceRequest) returns (Replay) {}
+  rpc SetValue (SetValueRequest) returns (Replay) {}
+  rpc SetState (SetStateRequest) returns (Replay) {}
 }
 
-enum StatusType {
-    Report = 0;
-    Control = 1;
-}
-
-message State {
-    uint32 id  = 1;
-    string data = 2;
-    StatusType type = 3;
-    google.protobuf.Timestamp timestamp = 4;
-    string status = 5;
-}
-
-message Number {
-    float min = 1;
-    float max = 2;
-    float step = 3;
-    string unit = 4;
-}
-
-message String {
-    float max = 1;
-    string encoding = 2;
-}
-
-message Blob {
-    float max = 1;
-    string encoding = 2;
-}
-
-message Value {
-    uint32 id = 1;
-    string name = 2;
-    string type = 3;
-    string permission = 4;
-    string status = 5;
-    oneof valuetype {
-        Number number = 6;
-        String string = 7;
-        Blob blob = 8;
-    }   
-    repeated State state = 9;
-}
-
-message Device {
-    uint32 id = 1;
-    string name = 2;
-    string serial = 3;
-    string manufacturer = 4;
-    string product = 5;
-    string version = 6;
-    repeated Value value = 7;
-}
-
-message Me {
+message Driver {
     string host = 2;
     uint32 port = 3;
 }
 
 message Model {
-    Me me = 1;
+    Driver driver = 1;
     repeated Device device = 2;
 }
 
@@ -85,20 +31,19 @@ message SetModelRequest {
 }
 
 message SetDeviceRequest {
-    Me me = 1;
+    Driver driver = 1;
     Device device = 2;
 }
 
 message SetValueRequest {
-    Me me = 1;
+    Driver driver = 1;
     uint32 device_id = 2;
     Value value = 3;
 }
 
 message SetStateRequest {
-    Me me = 1;
+    Driver driver = 1;
     uint32 device_id = 2;
     uint32 value_id = 3;
     State state = 4;
 }
-

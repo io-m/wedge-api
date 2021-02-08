@@ -1,14 +1,15 @@
 syntax = "proto3";
 
-import "google/protobuf/empty.proto";
+option go_package = "github.com/Wappsto/wedge-api/go/node";
 
-option go_package = "github.com/Wappsto/wedge-api/go/wedgepb";
+import public "slx.proto";
 
 package node;
 
 // The node service definition.
 service Node {
-  rpc UpdateState (UpdateStateRequest) returns (google.protobuf.Empty) {}
+  rpc UpdateState (UpdateStateRequest) returns (Replay) {}
+  rpc DeleteDevice (DeleteDeviceRequest) returns (Replay) {}
 }
 
 message UpdateStateRequest {
@@ -17,7 +18,7 @@ message UpdateStateRequest {
     uint32 value_id = 3; 
 }
 
-message State {
-    uint32 id  = 1;
-    string data = 2;
+message DeleteDeviceRequest {
+    uint32 device_id = 1;
 }
+
