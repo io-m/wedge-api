@@ -2,7 +2,6 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-import slx_pb2 as slx__pb2
 import wedge_pb2 as wedge__pb2
 
 
@@ -19,22 +18,27 @@ class WedgeStub(object):
         self.SetModel = channel.unary_unary(
                 '/wedge.Wedge/SetModel',
                 request_serializer=wedge__pb2.SetModelRequest.SerializeToString,
-                response_deserializer=slx__pb2.Replay.FromString,
+                response_deserializer=wedge__pb2.Replay.FromString,
                 )
         self.SetDevice = channel.unary_unary(
                 '/wedge.Wedge/SetDevice',
                 request_serializer=wedge__pb2.SetDeviceRequest.SerializeToString,
-                response_deserializer=slx__pb2.Replay.FromString,
+                response_deserializer=wedge__pb2.Replay.FromString,
                 )
         self.SetValue = channel.unary_unary(
                 '/wedge.Wedge/SetValue',
                 request_serializer=wedge__pb2.SetValueRequest.SerializeToString,
-                response_deserializer=slx__pb2.Replay.FromString,
+                response_deserializer=wedge__pb2.Replay.FromString,
                 )
         self.SetState = channel.unary_unary(
                 '/wedge.Wedge/SetState',
                 request_serializer=wedge__pb2.SetStateRequest.SerializeToString,
-                response_deserializer=slx__pb2.Replay.FromString,
+                response_deserializer=wedge__pb2.Replay.FromString,
+                )
+        self.GetControl = channel.unary_unary(
+                '/wedge.Wedge/GetControl',
+                request_serializer=wedge__pb2.GetControlRequest.SerializeToString,
+                response_deserializer=wedge__pb2.Control.FromString,
                 )
 
 
@@ -66,28 +70,39 @@ class WedgeServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetControl(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_WedgeServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'SetModel': grpc.unary_unary_rpc_method_handler(
                     servicer.SetModel,
                     request_deserializer=wedge__pb2.SetModelRequest.FromString,
-                    response_serializer=slx__pb2.Replay.SerializeToString,
+                    response_serializer=wedge__pb2.Replay.SerializeToString,
             ),
             'SetDevice': grpc.unary_unary_rpc_method_handler(
                     servicer.SetDevice,
                     request_deserializer=wedge__pb2.SetDeviceRequest.FromString,
-                    response_serializer=slx__pb2.Replay.SerializeToString,
+                    response_serializer=wedge__pb2.Replay.SerializeToString,
             ),
             'SetValue': grpc.unary_unary_rpc_method_handler(
                     servicer.SetValue,
                     request_deserializer=wedge__pb2.SetValueRequest.FromString,
-                    response_serializer=slx__pb2.Replay.SerializeToString,
+                    response_serializer=wedge__pb2.Replay.SerializeToString,
             ),
             'SetState': grpc.unary_unary_rpc_method_handler(
                     servicer.SetState,
                     request_deserializer=wedge__pb2.SetStateRequest.FromString,
-                    response_serializer=slx__pb2.Replay.SerializeToString,
+                    response_serializer=wedge__pb2.Replay.SerializeToString,
+            ),
+            'GetControl': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetControl,
+                    request_deserializer=wedge__pb2.GetControlRequest.FromString,
+                    response_serializer=wedge__pb2.Control.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -113,7 +128,7 @@ class Wedge(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/wedge.Wedge/SetModel',
             wedge__pb2.SetModelRequest.SerializeToString,
-            slx__pb2.Replay.FromString,
+            wedge__pb2.Replay.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -130,7 +145,7 @@ class Wedge(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/wedge.Wedge/SetDevice',
             wedge__pb2.SetDeviceRequest.SerializeToString,
-            slx__pb2.Replay.FromString,
+            wedge__pb2.Replay.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -147,7 +162,7 @@ class Wedge(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/wedge.Wedge/SetValue',
             wedge__pb2.SetValueRequest.SerializeToString,
-            slx__pb2.Replay.FromString,
+            wedge__pb2.Replay.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -164,6 +179,23 @@ class Wedge(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/wedge.Wedge/SetState',
             wedge__pb2.SetStateRequest.SerializeToString,
-            slx__pb2.Replay.FromString,
+            wedge__pb2.Replay.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetControl(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/wedge.Wedge/GetControl',
+            wedge__pb2.GetControlRequest.SerializeToString,
+            wedge__pb2.Control.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'Z#github.com/Wappsto/wedge-api/go/slx',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\tslx.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"1\n\x04Meta\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04type\x18\x02 \x01(\t\x12\x0f\n\x07version\x18\x03 \x01(\t\"\x83\x01\n\x05State\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\t\x12\x0c\n\x04type\x18\x02 \x01(\t\x12-\n\ttimestamp\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x0e\n\x06status\x18\x04 \x01(\t\x12\x13\n\x04meta\x18\x05 \x01(\x0b\x32\x05.Meta\x12\n\n\x02id\x18\x06 \x01(\r\"\xa8\x01\n\x06Number\x12\x0b\n\x03min\x18\x01 \x01(\x02\x12\x0b\n\x03max\x18\x02 \x01(\x02\x12\x0c\n\x04step\x18\x03 \x01(\x02\x12\x0c\n\x04unit\x18\x04 \x01(\t\x12\x15\n\rsi_conversion\x18\x05 \x01(\t\x12\x17\n\x0fordered_mapping\x18\x06 \x01(\x08\x12\x17\n\x0fmeaningful_zero\x18\x07 \x01(\x08\x12\x1f\n\x07mapping\x18\x08 \x01(\x0e\x32\x0e.NumberMapping\"\'\n\x06String\x12\x0b\n\x03max\x18\x01 \x01(\x02\x12\x10\n\x08\x65ncoding\x18\x02 \x01(\t\"%\n\x04\x42lob\x12\x0b\n\x03max\x18\x01 \x01(\x02\x12\x10\n\x08\x65ncoding\x18\x02 \x01(\t\"\x17\n\x04Info\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\"\x8f\x02\n\x05Value\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0c\n\x04type\x18\x02 \x01(\t\x12\x0e\n\x06period\x18\x03 \x01(\t\x12\r\n\x05\x64\x65lta\x18\x04 \x01(\t\x12\x12\n\npermission\x18\x05 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x06 \x01(\t\x12\x0e\n\x06status\x18\x07 \x01(\t\x12\x17\n\x06number\x18\x08 \x01(\x0b\x32\x07.Number\x12\x17\n\x06string\x18\t \x01(\x0b\x32\x07.String\x12\x13\n\x04\x62lob\x18\n \x01(\x0b\x32\x05.Blob\x12\x15\n\x05state\x18\x0b \x03(\x0b\x32\x06.State\x12\x13\n\x04info\x18\x0c \x01(\x0b\x32\x05.Info\x12\x13\n\x04meta\x18\r \x01(\x0b\x32\x05.Meta\x12\n\n\x02id\x18\x0e \x01(\r\"\xa0\x02\n\x06\x44\x65vice\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x14\n\x0cmanufacturer\x18\x02 \x01(\t\x12\x0f\n\x07product\x18\x03 \x01(\t\x12\x0f\n\x07version\x18\x04 \x01(\t\x12\x0e\n\x06serial\x18\x05 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x06 \x01(\t\x12\x10\n\x08protocol\x18\x07 \x01(\t\x12\x15\n\rcommunication\x18\x08 \x01(\t\x12\x17\n\x0f\x63ontrol_timeout\x18\t \x01(\r\x12\x1c\n\x14\x63ontrol_when_offline\x18\n \x01(\x08\x12\x15\n\x05value\x18\x0b \x03(\x0b\x32\x06.Value\x12\x13\n\x04info\x18\x0c \x01(\x0b\x32\x05.Info\x12\x13\n\x04meta\x18\r \x01(\x0b\x32\x05.Meta\x12\n\n\x02id\x18\x0e \x01(\r\"&\n\x05\x45rror\x12\x0f\n\x07message\x18\x01 \x01(\t\x12\x0c\n\x04\x63ode\x18\x02 \x01(\r\"+\n\x06Replay\x12\n\n\x02ok\x18\x01 \x01(\x08\x12\x15\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x06.Error* \n\rNumberMapping\x12\x07\n\x03off\x10\x00\x12\x06\n\x02on\x10\x01\x42%Z#github.com/Wappsto/wedge-api/go/slxb\x06proto3'
+  serialized_pb=b'\n\tslx.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"1\n\x04Meta\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04type\x18\x02 \x01(\t\x12\x0f\n\x07version\x18\x03 \x01(\t\"\x83\x01\n\x05State\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\t\x12\x0c\n\x04type\x18\x02 \x01(\t\x12-\n\ttimestamp\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x0e\n\x06status\x18\x04 \x01(\t\x12\x13\n\x04meta\x18\x05 \x01(\x0b\x32\x05.Meta\x12\n\n\x02id\x18\x06 \x01(\r\"\xa8\x01\n\x06Number\x12\x0b\n\x03min\x18\x01 \x01(\x02\x12\x0b\n\x03max\x18\x02 \x01(\x02\x12\x0c\n\x04step\x18\x03 \x01(\x02\x12\x0c\n\x04unit\x18\x04 \x01(\t\x12\x15\n\rsi_conversion\x18\x05 \x01(\t\x12\x17\n\x0fordered_mapping\x18\x06 \x01(\x08\x12\x17\n\x0fmeaningful_zero\x18\x07 \x01(\x08\x12\x1f\n\x07mapping\x18\x08 \x01(\x0e\x32\x0e.NumberMapping\"\'\n\x06String\x12\x0b\n\x03max\x18\x01 \x01(\x02\x12\x10\n\x08\x65ncoding\x18\x02 \x01(\t\"%\n\x04\x42lob\x12\x0b\n\x03max\x18\x01 \x01(\x02\x12\x10\n\x08\x65ncoding\x18\x02 \x01(\t\"\x17\n\x04Info\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\"\x8f\x02\n\x05Value\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0c\n\x04type\x18\x02 \x01(\t\x12\x0e\n\x06period\x18\x03 \x01(\t\x12\r\n\x05\x64\x65lta\x18\x04 \x01(\t\x12\x12\n\npermission\x18\x05 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x06 \x01(\t\x12\x0e\n\x06status\x18\x07 \x01(\t\x12\x17\n\x06number\x18\x08 \x01(\x0b\x32\x07.Number\x12\x17\n\x06string\x18\t \x01(\x0b\x32\x07.String\x12\x13\n\x04\x62lob\x18\n \x01(\x0b\x32\x05.Blob\x12\x15\n\x05state\x18\x0b \x03(\x0b\x32\x06.State\x12\x13\n\x04info\x18\x0c \x01(\x0b\x32\x05.Info\x12\x13\n\x04meta\x18\r \x01(\x0b\x32\x05.Meta\x12\n\n\x02id\x18\x0e \x01(\r\"\xa0\x02\n\x06\x44\x65vice\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x14\n\x0cmanufacturer\x18\x02 \x01(\t\x12\x0f\n\x07product\x18\x03 \x01(\t\x12\x0f\n\x07version\x18\x04 \x01(\t\x12\x0e\n\x06serial\x18\x05 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x06 \x01(\t\x12\x10\n\x08protocol\x18\x07 \x01(\t\x12\x15\n\rcommunication\x18\x08 \x01(\t\x12\x17\n\x0f\x63ontrol_timeout\x18\t \x01(\r\x12\x1c\n\x14\x63ontrol_when_offline\x18\n \x01(\x08\x12\x15\n\x05value\x18\x0b \x03(\x0b\x32\x06.Value\x12\x13\n\x04info\x18\x0c \x01(\x0b\x32\x05.Info\x12\x13\n\x04meta\x18\r \x01(\x0b\x32\x05.Meta\x12\n\n\x02id\x18\x0e \x01(\r* \n\rNumberMapping\x12\x07\n\x03off\x10\x00\x12\x06\n\x02on\x10\x01\x42%Z#github.com/Wappsto/wedge-api/go/slxb\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
 
@@ -45,8 +45,8 @@ _NUMBERMAPPING = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1157,
-  serialized_end=1189,
+  serialized_start=1072,
+  serialized_end=1104,
 )
 _sym_db.RegisterEnumDescriptor(_NUMBERMAPPING)
 
@@ -605,84 +605,6 @@ _DEVICE = _descriptor.Descriptor(
   serialized_end=1070,
 )
 
-
-_ERROR = _descriptor.Descriptor(
-  name='Error',
-  full_name='Error',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='message', full_name='Error.message', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='code', full_name='Error.code', index=1,
-      number=2, type=13, cpp_type=3, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1072,
-  serialized_end=1110,
-)
-
-
-_REPLAY = _descriptor.Descriptor(
-  name='Replay',
-  full_name='Replay',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='ok', full_name='Replay.ok', index=0,
-      number=1, type=8, cpp_type=7, label=1,
-      has_default_value=False, default_value=False,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='error', full_name='Replay.error', index=1,
-      number=2, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=1112,
-  serialized_end=1155,
-)
-
 _STATE.fields_by_name['timestamp'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _STATE.fields_by_name['meta'].message_type = _META
 _NUMBER.fields_by_name['mapping'].enum_type = _NUMBERMAPPING
@@ -695,7 +617,6 @@ _VALUE.fields_by_name['meta'].message_type = _META
 _DEVICE.fields_by_name['value'].message_type = _VALUE
 _DEVICE.fields_by_name['info'].message_type = _INFO
 _DEVICE.fields_by_name['meta'].message_type = _META
-_REPLAY.fields_by_name['error'].message_type = _ERROR
 DESCRIPTOR.message_types_by_name['Meta'] = _META
 DESCRIPTOR.message_types_by_name['State'] = _STATE
 DESCRIPTOR.message_types_by_name['Number'] = _NUMBER
@@ -704,8 +625,6 @@ DESCRIPTOR.message_types_by_name['Blob'] = _BLOB
 DESCRIPTOR.message_types_by_name['Info'] = _INFO
 DESCRIPTOR.message_types_by_name['Value'] = _VALUE
 DESCRIPTOR.message_types_by_name['Device'] = _DEVICE
-DESCRIPTOR.message_types_by_name['Error'] = _ERROR
-DESCRIPTOR.message_types_by_name['Replay'] = _REPLAY
 DESCRIPTOR.enum_types_by_name['NumberMapping'] = _NUMBERMAPPING
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -764,20 +683,6 @@ Device = _reflection.GeneratedProtocolMessageType('Device', (_message.Message,),
   # @@protoc_insertion_point(class_scope:Device)
   })
 _sym_db.RegisterMessage(Device)
-
-Error = _reflection.GeneratedProtocolMessageType('Error', (_message.Message,), {
-  'DESCRIPTOR' : _ERROR,
-  '__module__' : 'slx_pb2'
-  # @@protoc_insertion_point(class_scope:Error)
-  })
-_sym_db.RegisterMessage(Error)
-
-Replay = _reflection.GeneratedProtocolMessageType('Replay', (_message.Message,), {
-  'DESCRIPTOR' : _REPLAY,
-  '__module__' : 'slx_pb2'
-  # @@protoc_insertion_point(class_scope:Replay)
-  })
-_sym_db.RegisterMessage(Replay)
 
 
 DESCRIPTOR._options = None

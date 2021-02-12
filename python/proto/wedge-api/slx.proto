@@ -91,12 +91,4 @@ message Device {
     uint32 id = 14;
 }
 
-message Error {
-    string message = 1;
-    uint32 code = 2;
-}
 
-message Replay {
-    bool ok = 1;
-    Error error = 2;
-}

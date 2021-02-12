@@ -6,11 +6,8 @@ import logging
 import sys
 import signal
 import grpc
-
-
+import time
 # pregenerated from proto file
-# from wedge_api import node_pb2
-import slx_pb2
 import wedge_pb2_grpc
 import wedge_pb2
 
@@ -39,7 +36,7 @@ class Wedge(wedge_pb2_grpc.WedgeServicer):
         # context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         # context.set_details('Method not implemented!')
         print(request)
-        return slx_pb2.Replay(ok=True)
+        return wedge_pb2.Replay(ok=True)
 
     def SetDevice(self, request, context):
         # context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -54,8 +51,21 @@ class Wedge(wedge_pb2_grpc.WedgeServicer):
     def SetState(self, request, context):
         # context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         # context.set_details('Method not implemented!')
-        print(request)
-        return slx_pb2.Replay(ok=True)
+        return wedge_pb2.Replay(ok=True)
+
+    def GetControl(self, request, context):
+        print("Got request for Control, node: {}".format(request.node))
+        time.sleep(10)
+        print("Sending Control to  node: {}".format(request.node))
+        update = wedge_pb2.UpdateState(
+            state=wedge_pb2.State(
+                id=1,
+                data="99"
+            ),
+            device_id=1,
+            value_id=1,
+        )
+        return wedge_pb2.Control(update=update)
 
 
 async def downlinkLoop():

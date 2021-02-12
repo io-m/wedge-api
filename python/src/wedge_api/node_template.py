@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-from grpc import aio
+# from grpc import aio
 # for creating protobuf struct from python dictionary.
 # from google.protobuf.struct_pb2 import Struct
 # for conversion protobuf to json.
@@ -9,16 +9,15 @@ import asyncio
 import logging
 import sys
 import signal
+import time
 import grpc
 # pregenerated from proto file
-# import wedge_api.node_pb2
-# import wedge_api.common_pb2
-
-# import slx_pb2
 import wedge_pb2
-# import node_pb2
-import node_pb2_grpc
 import wedge_pb2_grpc
+
+CHANNEL_OPTIONS = [('grpc.lb_policy_name', 'pick_first'),
+                   ('grpc.enable_retries', 0),
+                   ('grpc.keepalive_timeout_ms', 10000)]
 
 
 def signal_handler(signal, frame):
@@ -33,14 +32,13 @@ Uplink class holds all remote Wedge Methods
 # control_state = wedge_pb2.StateType.Control
 # report_state = wedge_pb2.StateType.Report
 
-myIdentity = wedge_pb2.Driver(
-    host="127.0.0.1",
-    port=30052,
+myIdentity = wedge_pb2.NodeIdentity(
+    id="unique_python_node_client",
 )
 
 # Example of Model, which identical to Seluxit data Model.
 model = wedge_pb2.Model(
-    driver=myIdentity,
+    node=myIdentity,
     device=[wedge_pb2.Device(
         id=1,
         name="water_control",
@@ -74,83 +72,53 @@ model = wedge_pb2.Model(
 
 
 class Uplink:
-    def __init__(self):
+    def __init__(self, stub):
         logging.info("Initialize Uplink object.")
-        self.channel = grpc.insecure_channel('localhost:50051')
-        try:
-            # 1 sec timeout....
-            grpc.channel_ready_future(self.channel).result(timeout=1)
-        except grpc.FutureTimeoutError:
-            sys.exit('Error connecting to server')
+        self.stub = stub
 
-        self.stub = wedge_pb2_grpc.WedgeStub(self.channel)
-
-    def SetModel(self, model):
+    async def SetModel(self, model):
         # metadata is optional, it just for test purpose.
         metadata = [('ip', '127.0.0.1')]
         request = wedge_pb2.SetModelRequest(model=model)
-        return self.stub.SetModel(request=request, metadata=metadata)
+        return await self.stub.SetModel(request=request, metadata=metadata)
 
-    def SetState(self, request):
-        resp = self.stub.SetState(
-            request
-        )
-        return resp
+    async def SetState(self, request):
+        return await self.stub.SetState(request)
 
-
-"""
-    Node class will define all methods allowed to call from Wedge.
-"""
-
-
-class TheNode(node_pb2_grpc.NodeServicer):
-
-    def __init__(self, *args, **kwargs):
-        pass
-
-    # method will be called from wedge
-    def UpdateState(self, request, context):
-        print("__UpdateState__")
-        print("{}".format(request))
-        print("---------------")
-        # print("device id: {}".format_map(request.device_id))
-        # print("value id: {}".format_map(request.value_id))
-        # print("state id: {}".format_map(request.S))
-
-        return wedge_pb2.Replay(ok=True)
-
-    def DeleteDevice(self, request, context):
-        print("__DeleteDevice__")
-        return wedge_pb2.Replay(ok=True)
+    async def GetControl(self, request):
+        return await self.stub.GetControl(request)
 
 
 """
-    Two async loop - one for listening incomming messages from Wedge,
+    Two async loop - one for listening incomming control messages from Wedge,
     another for incomming messages from driver
 """
 
 
-async def serve():
-    server = aio.server()
-    node_pb2_grpc.add_NodeServicer_to_server(TheNode(), server)
+async def listen(uplink):
+    logging.info("Start listen for Control messages")
+    while True:
+        logging.info("Sending request for control")
+        try:
+            resp = await uplink.GetControl(wedge_pb2.GetControlRequest(
+                node=myIdentity
+            ))
+            print("Got control message: {}".format(resp))
+            # Do something accordingly.
+        except Exception as e:
+            print("Something bad happened {}, re-try".format(e))
+            time.sleep(5)
 
-    listen_addr = '[::]:30052'
-    server.add_insecure_port(listen_addr)
-    logging.info("Starting server on %s", listen_addr)
-    await server.start()
-    await server.wait_for_termination()
 
-
-async def driverLoop():
-    uplink = Uplink()
-    resp = uplink.SetModel(model)
+async def driverLoop(uplink):
+    resp = await uplink.SetModel(model)
     logging.info("Response: {}".format(resp))
 
     while True:
-        data = '33'
+        data = '22'
         print('Hello from driver..., data: ', data)
         req = wedge_pb2.SetStateRequest(
-            driver=myIdentity,
+            node=myIdentity,
             device_id=1,
             value_id=1,
             state=wedge_pb2.State(
@@ -158,13 +126,17 @@ async def driverLoop():
                 data=data
             ),
         )
-        resp = uplink.SetState(req)
+        resp = await uplink.SetState(req)
         logging.info("Response: {}".format(resp))
         await asyncio.sleep(5)
 
 
-async def main():
-    await asyncio.gather(driverLoop(), serve())
+async def main() -> None:
+    async with grpc.aio.insecure_channel(target='localhost:50051',
+                                         options=CHANNEL_OPTIONS) as channel:
+        stub = wedge_pb2_grpc.WedgeStub(channel)
+        uplink = Uplink(stub)
+        await asyncio.gather(driverLoop(uplink), listen(uplink))
 
 if __name__ == '__main__':
     signal.signal(signal.SIGINT, signal_handler)

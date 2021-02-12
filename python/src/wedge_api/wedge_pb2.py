@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'Z%github.com/Wappsto/wedge-api/go/wedge',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0bwedge.proto\x12\x05wedge\x1a\tslx.proto\"$\n\x06\x44river\x12\x0c\n\x04host\x18\x02 \x01(\t\x12\x0c\n\x04port\x18\x03 \x01(\r\"?\n\x05Model\x12\x1d\n\x06\x64river\x18\x01 \x01(\x0b\x32\r.wedge.Driver\x12\x17\n\x06\x64\x65vice\x18\x02 \x03(\x0b\x32\x07.Device\".\n\x0fSetModelRequest\x12\x1b\n\x05model\x18\x01 \x01(\x0b\x32\x0c.wedge.Model\"J\n\x10SetDeviceRequest\x12\x1d\n\x06\x64river\x18\x01 \x01(\x0b\x32\r.wedge.Driver\x12\x17\n\x06\x64\x65vice\x18\x02 \x01(\x0b\x32\x07.Device\"Z\n\x0fSetValueRequest\x12\x1d\n\x06\x64river\x18\x01 \x01(\x0b\x32\r.wedge.Driver\x12\x11\n\tdevice_id\x18\x02 \x01(\r\x12\x15\n\x05value\x18\x03 \x01(\x0b\x32\x06.Value\"l\n\x0fSetStateRequest\x12\x1d\n\x06\x64river\x18\x01 \x01(\x0b\x32\r.wedge.Driver\x12\x11\n\tdevice_id\x18\x02 \x01(\r\x12\x10\n\x08value_id\x18\x03 \x01(\r\x12\x15\n\x05state\x18\x04 \x01(\x0b\x32\x06.State2\xc5\x01\n\x05Wedge\x12-\n\x08SetModel\x12\x16.wedge.SetModelRequest\x1a\x07.Replay\"\x00\x12/\n\tSetDevice\x12\x17.wedge.SetDeviceRequest\x1a\x07.Replay\"\x00\x12-\n\x08SetValue\x12\x16.wedge.SetValueRequest\x1a\x07.Replay\"\x00\x12-\n\x08SetState\x12\x16.wedge.SetStateRequest\x1a\x07.Replay\"\x00\x42\'Z%github.com/Wappsto/wedge-api/go/wedgeP\x00\x62\x06proto3'
+  serialized_pb=b'\n\x0bwedge.proto\x12\x05wedge\x1a\tslx.proto\"\x1a\n\x0cNodeIdentity\x12\n\n\x02id\x18\x01 \x01(\t\"C\n\x05Model\x12!\n\x04node\x18\x01 \x01(\x0b\x32\x13.wedge.NodeIdentity\x12\x17\n\x06\x64\x65vice\x18\x02 \x03(\x0b\x32\x07.Device\".\n\x0fSetModelRequest\x12\x1b\n\x05model\x18\x01 \x01(\x0b\x32\x0c.wedge.Model\"N\n\x10SetDeviceRequest\x12!\n\x04node\x18\x01 \x01(\x0b\x32\x13.wedge.NodeIdentity\x12\x17\n\x06\x64\x65vice\x18\x02 \x01(\x0b\x32\x07.Device\"^\n\x0fSetValueRequest\x12!\n\x04node\x18\x01 \x01(\x0b\x32\x13.wedge.NodeIdentity\x12\x11\n\tdevice_id\x18\x02 \x01(\r\x12\x15\n\x05value\x18\x03 \x01(\x0b\x32\x06.Value\"p\n\x0fSetStateRequest\x12!\n\x04node\x18\x01 \x01(\x0b\x32\x13.wedge.NodeIdentity\x12\x11\n\tdevice_id\x18\x02 \x01(\r\x12\x10\n\x08value_id\x18\x03 \x01(\r\x12\x15\n\x05state\x18\x04 \x01(\x0b\x32\x06.State\"6\n\x11GetControlRequest\x12!\n\x04node\x18\x01 \x01(\x0b\x32\x13.wedge.NodeIdentity\"I\n\x0bUpdateState\x12\x15\n\x05state\x18\x01 \x01(\x0b\x32\x06.State\x12\x11\n\tdevice_id\x18\x02 \x01(\r\x12\x10\n\x08value_id\x18\x03 \x01(\r\"!\n\x0c\x44\x65leteDevice\x12\x11\n\tdevice_id\x18\x01 \x01(\r\"R\n\x07\x43ontrol\x12\"\n\x06update\x18\x01 \x01(\x0b\x32\x12.wedge.UpdateState\x12#\n\x06\x64\x65lete\x18\x02 \x01(\x0b\x32\x13.wedge.DeleteDevice\"&\n\x05\x45rror\x12\x0f\n\x07message\x18\x01 \x01(\t\x12\x0c\n\x04\x63ode\x18\x02 \x01(\r\"1\n\x06Replay\x12\n\n\x02ok\x18\x01 \x01(\x08\x12\x1b\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x0c.wedge.Error2\x97\x02\n\x05Wedge\x12\x33\n\x08SetModel\x12\x16.wedge.SetModelRequest\x1a\r.wedge.Replay\"\x00\x12\x35\n\tSetDevice\x12\x17.wedge.SetDeviceRequest\x1a\r.wedge.Replay\"\x00\x12\x33\n\x08SetValue\x12\x16.wedge.SetValueRequest\x1a\r.wedge.Replay\"\x00\x12\x33\n\x08SetState\x12\x16.wedge.SetStateRequest\x1a\r.wedge.Replay\"\x00\x12\x38\n\nGetControl\x12\x18.wedge.GetControlRequest\x1a\x0e.wedge.Control\"\x00\x42\'Z%github.com/Wappsto/wedge-api/go/wedgeP\x00\x62\x06proto3'
   ,
   dependencies=[slx__pb2.DESCRIPTOR,],
   public_dependencies=[slx__pb2.DESCRIPTOR,])
@@ -29,25 +29,18 @@ DESCRIPTOR = _descriptor.FileDescriptor(
 
 
 
-_DRIVER = _descriptor.Descriptor(
-  name='Driver',
-  full_name='wedge.Driver',
+_NODEIDENTITY = _descriptor.Descriptor(
+  name='NodeIdentity',
+  full_name='wedge.NodeIdentity',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='host', full_name='wedge.Driver.host', index=0,
-      number=2, type=9, cpp_type=9, label=1,
+      name='id', full_name='wedge.NodeIdentity.id', index=0,
+      number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-    _descriptor.FieldDescriptor(
-      name='port', full_name='wedge.Driver.port', index=1,
-      number=3, type=13, cpp_type=3, label=1,
-      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -64,7 +57,7 @@ _DRIVER = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=33,
-  serialized_end=69,
+  serialized_end=59,
 )
 
 
@@ -77,7 +70,7 @@ _MODEL = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='driver', full_name='wedge.Model.driver', index=0,
+      name='node', full_name='wedge.Model.node', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -102,8 +95,8 @@ _MODEL = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=71,
-  serialized_end=134,
+  serialized_start=61,
+  serialized_end=128,
 )
 
 
@@ -134,8 +127,8 @@ _SETMODELREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=136,
-  serialized_end=182,
+  serialized_start=130,
+  serialized_end=176,
 )
 
 
@@ -148,7 +141,7 @@ _SETDEVICEREQUEST = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='driver', full_name='wedge.SetDeviceRequest.driver', index=0,
+      name='node', full_name='wedge.SetDeviceRequest.node', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -173,8 +166,8 @@ _SETDEVICEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=184,
-  serialized_end=258,
+  serialized_start=178,
+  serialized_end=256,
 )
 
 
@@ -187,7 +180,7 @@ _SETVALUEREQUEST = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='driver', full_name='wedge.SetValueRequest.driver', index=0,
+      name='node', full_name='wedge.SetValueRequest.node', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -219,8 +212,8 @@ _SETVALUEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=260,
-  serialized_end=350,
+  serialized_start=258,
+  serialized_end=352,
 )
 
 
@@ -233,7 +226,7 @@ _SETSTATEREQUEST = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='driver', full_name='wedge.SetStateRequest.driver', index=0,
+      name='node', full_name='wedge.SetStateRequest.node', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -272,33 +265,271 @@ _SETSTATEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=352,
-  serialized_end=460,
+  serialized_start=354,
+  serialized_end=466,
 )
 
-_MODEL.fields_by_name['driver'].message_type = _DRIVER
+
+_GETCONTROLREQUEST = _descriptor.Descriptor(
+  name='GetControlRequest',
+  full_name='wedge.GetControlRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='node', full_name='wedge.GetControlRequest.node', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=468,
+  serialized_end=522,
+)
+
+
+_UPDATESTATE = _descriptor.Descriptor(
+  name='UpdateState',
+  full_name='wedge.UpdateState',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='state', full_name='wedge.UpdateState.state', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='device_id', full_name='wedge.UpdateState.device_id', index=1,
+      number=2, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='value_id', full_name='wedge.UpdateState.value_id', index=2,
+      number=3, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=524,
+  serialized_end=597,
+)
+
+
+_DELETEDEVICE = _descriptor.Descriptor(
+  name='DeleteDevice',
+  full_name='wedge.DeleteDevice',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='device_id', full_name='wedge.DeleteDevice.device_id', index=0,
+      number=1, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=599,
+  serialized_end=632,
+)
+
+
+_CONTROL = _descriptor.Descriptor(
+  name='Control',
+  full_name='wedge.Control',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='update', full_name='wedge.Control.update', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='delete', full_name='wedge.Control.delete', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=634,
+  serialized_end=716,
+)
+
+
+_ERROR = _descriptor.Descriptor(
+  name='Error',
+  full_name='wedge.Error',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='message', full_name='wedge.Error.message', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='code', full_name='wedge.Error.code', index=1,
+      number=2, type=13, cpp_type=3, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=718,
+  serialized_end=756,
+)
+
+
+_REPLAY = _descriptor.Descriptor(
+  name='Replay',
+  full_name='wedge.Replay',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='ok', full_name='wedge.Replay.ok', index=0,
+      number=1, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='error', full_name='wedge.Replay.error', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=758,
+  serialized_end=807,
+)
+
+_MODEL.fields_by_name['node'].message_type = _NODEIDENTITY
 _MODEL.fields_by_name['device'].message_type = slx__pb2._DEVICE
 _SETMODELREQUEST.fields_by_name['model'].message_type = _MODEL
-_SETDEVICEREQUEST.fields_by_name['driver'].message_type = _DRIVER
+_SETDEVICEREQUEST.fields_by_name['node'].message_type = _NODEIDENTITY
 _SETDEVICEREQUEST.fields_by_name['device'].message_type = slx__pb2._DEVICE
-_SETVALUEREQUEST.fields_by_name['driver'].message_type = _DRIVER
+_SETVALUEREQUEST.fields_by_name['node'].message_type = _NODEIDENTITY
 _SETVALUEREQUEST.fields_by_name['value'].message_type = slx__pb2._VALUE
-_SETSTATEREQUEST.fields_by_name['driver'].message_type = _DRIVER
+_SETSTATEREQUEST.fields_by_name['node'].message_type = _NODEIDENTITY
 _SETSTATEREQUEST.fields_by_name['state'].message_type = slx__pb2._STATE
-DESCRIPTOR.message_types_by_name['Driver'] = _DRIVER
+_GETCONTROLREQUEST.fields_by_name['node'].message_type = _NODEIDENTITY
+_UPDATESTATE.fields_by_name['state'].message_type = slx__pb2._STATE
+_CONTROL.fields_by_name['update'].message_type = _UPDATESTATE
+_CONTROL.fields_by_name['delete'].message_type = _DELETEDEVICE
+_REPLAY.fields_by_name['error'].message_type = _ERROR
+DESCRIPTOR.message_types_by_name['NodeIdentity'] = _NODEIDENTITY
 DESCRIPTOR.message_types_by_name['Model'] = _MODEL
 DESCRIPTOR.message_types_by_name['SetModelRequest'] = _SETMODELREQUEST
 DESCRIPTOR.message_types_by_name['SetDeviceRequest'] = _SETDEVICEREQUEST
 DESCRIPTOR.message_types_by_name['SetValueRequest'] = _SETVALUEREQUEST
 DESCRIPTOR.message_types_by_name['SetStateRequest'] = _SETSTATEREQUEST
+DESCRIPTOR.message_types_by_name['GetControlRequest'] = _GETCONTROLREQUEST
+DESCRIPTOR.message_types_by_name['UpdateState'] = _UPDATESTATE
+DESCRIPTOR.message_types_by_name['DeleteDevice'] = _DELETEDEVICE
+DESCRIPTOR.message_types_by_name['Control'] = _CONTROL
+DESCRIPTOR.message_types_by_name['Error'] = _ERROR
+DESCRIPTOR.message_types_by_name['Replay'] = _REPLAY
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
-Driver = _reflection.GeneratedProtocolMessageType('Driver', (_message.Message,), {
-  'DESCRIPTOR' : _DRIVER,
+NodeIdentity = _reflection.GeneratedProtocolMessageType('NodeIdentity', (_message.Message,), {
+  'DESCRIPTOR' : _NODEIDENTITY,
   '__module__' : 'wedge_pb2'
-  # @@protoc_insertion_point(class_scope:wedge.Driver)
+  # @@protoc_insertion_point(class_scope:wedge.NodeIdentity)
   })
-_sym_db.RegisterMessage(Driver)
+_sym_db.RegisterMessage(NodeIdentity)
 
 Model = _reflection.GeneratedProtocolMessageType('Model', (_message.Message,), {
   'DESCRIPTOR' : _MODEL,
@@ -335,6 +566,48 @@ SetStateRequest = _reflection.GeneratedProtocolMessageType('SetStateRequest', (_
   })
 _sym_db.RegisterMessage(SetStateRequest)
 
+GetControlRequest = _reflection.GeneratedProtocolMessageType('GetControlRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GETCONTROLREQUEST,
+  '__module__' : 'wedge_pb2'
+  # @@protoc_insertion_point(class_scope:wedge.GetControlRequest)
+  })
+_sym_db.RegisterMessage(GetControlRequest)
+
+UpdateState = _reflection.GeneratedProtocolMessageType('UpdateState', (_message.Message,), {
+  'DESCRIPTOR' : _UPDATESTATE,
+  '__module__' : 'wedge_pb2'
+  # @@protoc_insertion_point(class_scope:wedge.UpdateState)
+  })
+_sym_db.RegisterMessage(UpdateState)
+
+DeleteDevice = _reflection.GeneratedProtocolMessageType('DeleteDevice', (_message.Message,), {
+  'DESCRIPTOR' : _DELETEDEVICE,
+  '__module__' : 'wedge_pb2'
+  # @@protoc_insertion_point(class_scope:wedge.DeleteDevice)
+  })
+_sym_db.RegisterMessage(DeleteDevice)
+
+Control = _reflection.GeneratedProtocolMessageType('Control', (_message.Message,), {
+  'DESCRIPTOR' : _CONTROL,
+  '__module__' : 'wedge_pb2'
+  # @@protoc_insertion_point(class_scope:wedge.Control)
+  })
+_sym_db.RegisterMessage(Control)
+
+Error = _reflection.GeneratedProtocolMessageType('Error', (_message.Message,), {
+  'DESCRIPTOR' : _ERROR,
+  '__module__' : 'wedge_pb2'
+  # @@protoc_insertion_point(class_scope:wedge.Error)
+  })
+_sym_db.RegisterMessage(Error)
+
+Replay = _reflection.GeneratedProtocolMessageType('Replay', (_message.Message,), {
+  'DESCRIPTOR' : _REPLAY,
+  '__module__' : 'wedge_pb2'
+  # @@protoc_insertion_point(class_scope:wedge.Replay)
+  })
+_sym_db.RegisterMessage(Replay)
+
 
 DESCRIPTOR._options = None
 
@@ -345,8 +618,8 @@ _WEDGE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=463,
-  serialized_end=660,
+  serialized_start=810,
+  serialized_end=1089,
   methods=[
   _descriptor.MethodDescriptor(
     name='SetModel',
@@ -354,7 +627,7 @@ _WEDGE = _descriptor.ServiceDescriptor(
     index=0,
     containing_service=None,
     input_type=_SETMODELREQUEST,
-    output_type=slx__pb2._REPLAY,
+    output_type=_REPLAY,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
@@ -364,7 +637,7 @@ _WEDGE = _descriptor.ServiceDescriptor(
     index=1,
     containing_service=None,
     input_type=_SETDEVICEREQUEST,
-    output_type=slx__pb2._REPLAY,
+    output_type=_REPLAY,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
@@ -374,7 +647,7 @@ _WEDGE = _descriptor.ServiceDescriptor(
     index=2,
     containing_service=None,
     input_type=_SETVALUEREQUEST,
-    output_type=slx__pb2._REPLAY,
+    output_type=_REPLAY,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
@@ -384,7 +657,17 @@ _WEDGE = _descriptor.ServiceDescriptor(
     index=3,
     containing_service=None,
     input_type=_SETSTATEREQUEST,
-    output_type=slx__pb2._REPLAY,
+    output_type=_REPLAY,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetControl',
+    full_name='wedge.Wedge.GetControl',
+    index=4,
+    containing_service=None,
+    input_type=_GETCONTROLREQUEST,
+    output_type=_CONTROL,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),

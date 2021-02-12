@@ -14,5 +14,4 @@ pre-build:
 	cp -r ../protobuf/* proto/wedge-api/
 
 build:
-	python3 -m grpc_tools.protoc  --python_out=src/wedge_api  --grpc_python_out=./src/wedge_api -I=proto/wedge-api proto/wedge-api/slx.proto proto/wedge-api/node.proto
 	python3 -m grpc_tools.protoc  --python_out=src/wedge_api  --grpc_python_out=./src/wedge_api -I=proto/wedge-api proto/wedge-api/slx.proto proto/wedge-api/wedge.proto

@@ -785,116 +785,6 @@ func (x *Device) GetId() uint32 {
 	return 0
 }
 
-type Error struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Message string `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
-	Code    uint32 `protobuf:"varint,2,opt,name=code,proto3" json:"code,omitempty"`
-}
-
-func (x *Error) Reset() {
-	*x = Error{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_slx_proto_msgTypes[8]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *Error) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*Error) ProtoMessage() {}
-
-func (x *Error) ProtoReflect() protoreflect.Message {
-	mi := &file_slx_proto_msgTypes[8]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use Error.ProtoReflect.Descriptor instead.
-func (*Error) Descriptor() ([]byte, []int) {
-	return file_slx_proto_rawDescGZIP(), []int{8}
-}
-
-func (x *Error) GetMessage() string {
-	if x != nil {
-		return x.Message
-	}
-	return ""
-}
-
-func (x *Error) GetCode() uint32 {
-	if x != nil {
-		return x.Code
-	}
-	return 0
-}
-
-type Replay struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Ok    bool   `protobuf:"varint,1,opt,name=ok,proto3" json:"ok,omitempty"`
-	Error *Error `protobuf:"bytes,2,opt,name=error,proto3" json:"error,omitempty"`
-}
-
-func (x *Replay) Reset() {
-	*x = Replay{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_slx_proto_msgTypes[9]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *Replay) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*Replay) ProtoMessage() {}
-
-func (x *Replay) ProtoReflect() protoreflect.Message {
-	mi := &file_slx_proto_msgTypes[9]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use Replay.ProtoReflect.Descriptor instead.
-func (*Replay) Descriptor() ([]byte, []int) {
-	return file_slx_proto_rawDescGZIP(), []int{9}
-}
-
-func (x *Replay) GetOk() bool {
-	if x != nil {
-		return x.Ok
-	}
-	return false
-}
-
-func (x *Replay) GetError() *Error {
-	if x != nil {
-		return x.Error
-	}
-	return nil
-}
-
 var File_slx_proto protoreflect.FileDescriptor
 
 var file_slx_proto_rawDesc = []byte{
@@ -991,19 +881,12 @@ var file_slx_proto_rawDesc = []byte{
 	0x2e, 0x49, 0x6e, 0x66, 0x6f, 0x52, 0x04, 0x69, 0x6e, 0x66, 0x6f, 0x12, 0x19, 0x0a, 0x04, 0x6d,
 	0x65, 0x74, 0x61, 0x18, 0x0d, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x05, 0x2e, 0x4d, 0x65, 0x74, 0x61,
 	0x52, 0x04, 0x6d, 0x65, 0x74, 0x61, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x0e, 0x20, 0x01,
-	0x28, 0x0d, 0x52, 0x02, 0x69, 0x64, 0x22, 0x35, 0x0a, 0x05, 0x45, 0x72, 0x72, 0x6f, 0x72, 0x12,
-	0x18, 0x0a, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09,
-	0x52, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x12, 0x12, 0x0a, 0x04, 0x63, 0x6f, 0x64,
-	0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x04, 0x63, 0x6f, 0x64, 0x65, 0x22, 0x36, 0x0a,
-	0x06, 0x52, 0x65, 0x70, 0x6c, 0x61, 0x79, 0x12, 0x0e, 0x0a, 0x02, 0x6f, 0x6b, 0x18, 0x01, 0x20,
-	0x01, 0x28, 0x08, 0x52, 0x02, 0x6f, 0x6b, 0x12, 0x1c, 0x0a, 0x05, 0x65, 0x72, 0x72, 0x6f, 0x72,
-	0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x06, 0x2e, 0x45, 0x72, 0x72, 0x6f, 0x72, 0x52, 0x05,
-	0x65, 0x72, 0x72, 0x6f, 0x72, 0x2a, 0x20, 0x0a, 0x0d, 0x4e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x4d,
-	0x61, 0x70, 0x70, 0x69, 0x6e, 0x67, 0x12, 0x07, 0x0a, 0x03, 0x6f, 0x66, 0x66, 0x10, 0x00, 0x12,
-	0x06, 0x0a, 0x02, 0x6f, 0x6e, 0x10, 0x01, 0x42, 0x25, 0x5a, 0x23, 0x67, 0x69, 0x74, 0x68, 0x75,
-	0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x57, 0x61, 0x70, 0x70, 0x73, 0x74, 0x6f, 0x2f, 0x77, 0x65,
-	0x64, 0x67, 0x65, 0x2d, 0x61, 0x70, 0x69, 0x2f, 0x67, 0x6f, 0x2f, 0x73, 0x6c, 0x78, 0x62, 0x06,
-	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x28, 0x0d, 0x52, 0x02, 0x69, 0x64, 0x2a, 0x20, 0x0a, 0x0d, 0x4e, 0x75, 0x6d, 0x62, 0x65, 0x72,
+	0x4d, 0x61, 0x70, 0x70, 0x69, 0x6e, 0x67, 0x12, 0x07, 0x0a, 0x03, 0x6f, 0x66, 0x66, 0x10, 0x00,
+	0x12, 0x06, 0x0a, 0x02, 0x6f, 0x6e, 0x10, 0x01, 0x42, 0x25, 0x5a, 0x23, 0x67, 0x69, 0x74, 0x68,
+	0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x57, 0x61, 0x70, 0x70, 0x73, 0x74, 0x6f, 0x2f, 0x77,
+	0x65, 0x64, 0x67, 0x65, 0x2d, 0x61, 0x70, 0x69, 0x2f, 0x67, 0x6f, 0x2f, 0x73, 0x6c, 0x78, 0x62,
+	0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -1019,7 +902,7 @@ func file_slx_proto_rawDescGZIP() []byte {
 }
 
 var file_slx_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_slx_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
+var file_slx_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
 var file_slx_proto_goTypes = []interface{}{
 	(NumberMapping)(0),          // 0: NumberMapping
 	(*Meta)(nil),                // 1: Meta
@@ -1030,12 +913,10 @@ var file_slx_proto_goTypes = []interface{}{
 	(*Info)(nil),                // 6: Info
 	(*Value)(nil),               // 7: Value
 	(*Device)(nil),              // 8: Device
-	(*Error)(nil),               // 9: Error
-	(*Replay)(nil),              // 10: Replay
-	(*timestamp.Timestamp)(nil), // 11: google.protobuf.Timestamp
+	(*timestamp.Timestamp)(nil), // 9: google.protobuf.Timestamp
 }
 var file_slx_proto_depIdxs = []int32{
-	11, // 0: State.timestamp:type_name -> google.protobuf.Timestamp
+	9,  // 0: State.timestamp:type_name -> google.protobuf.Timestamp
 	1,  // 1: State.meta:type_name -> Meta
 	0,  // 2: Number.mapping:type_name -> NumberMapping
 	3,  // 3: Value.number:type_name -> Number
@@ -1047,12 +928,11 @@ var file_slx_proto_depIdxs = []int32{
 	7,  // 9: Device.value:type_name -> Value
 	6,  // 10: Device.info:type_name -> Info
 	1,  // 11: Device.meta:type_name -> Meta
-	9,  // 12: Replay.error:type_name -> Error
-	13, // [13:13] is the sub-list for method output_type
-	13, // [13:13] is the sub-list for method input_type
-	13, // [13:13] is the sub-list for extension type_name
-	13, // [13:13] is the sub-list for extension extendee
-	0,  // [0:13] is the sub-list for field type_name
+	12, // [12:12] is the sub-list for method output_type
+	12, // [12:12] is the sub-list for method input_type
+	12, // [12:12] is the sub-list for extension type_name
+	12, // [12:12] is the sub-list for extension extendee
+	0,  // [0:12] is the sub-list for field type_name
 }
 
 func init() { file_slx_proto_init() }
@@ -1157,30 +1037,6 @@ func file_slx_proto_init() {
 				return nil
 			}
 		}
-		file_slx_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*Error); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_slx_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*Replay); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -1188,7 +1044,7 @@ func file_slx_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_slx_proto_rawDesc,
 			NumEnums:      1,
-			NumMessages:   10,
+			NumMessages:   8,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

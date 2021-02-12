@@ -13,15 +13,16 @@ service Wedge {
   rpc SetDevice (SetDeviceRequest) returns (Replay) {}
   rpc SetValue (SetValueRequest) returns (Replay) {}
   rpc SetState (SetStateRequest) returns (Replay) {}
+  rpc GetControl(GetControlRequest) returns (Control) {}
 }
 
-message Driver {
-    string host = 2;
-    uint32 port = 3;
+// ------ Report messages ------------
+message NodeIdentity {
+    string id = 1;  
 }
 
 message Model {
-    Driver driver = 1;
+    NodeIdentity node = 1;
     repeated Device device = 2;
 }
 
@@ -31,19 +32,49 @@ message SetModelRequest {
 }
 
 message SetDeviceRequest {
-    Driver driver = 1;
+    NodeIdentity node = 1;
     Device device = 2;
 }
 
 message SetValueRequest {
-    Driver driver = 1;
+    NodeIdentity node = 1;
     uint32 device_id = 2;
     Value value = 3;
 }
 
 message SetStateRequest {
-    Driver driver = 1;
+    NodeIdentity node = 1;
     uint32 device_id = 2;
     uint32 value_id = 3;
     State state = 4;
+}
+
+message GetControlRequest {
+    NodeIdentity node = 1;
+}
+
+// ----- Control messages ----------
+message UpdateState {
+    State state = 1;
+    uint32 device_id = 2;
+    uint32 value_id = 3; 
+}
+
+message DeleteDevice {
+    uint32 device_id = 1;
+}
+
+message Control {
+    UpdateState update = 1;
+    DeleteDevice delete = 2;
+}
+
+message Error {
+    string message = 1;
+    uint32 code = 2;
+}
+
+message Replay {
+    bool ok = 1;
+    Error error = 2;
 }
