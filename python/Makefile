@@ -9,7 +9,6 @@ requirements:
 
 pre-build:
 	mkdir -p src
-	rm -rf proto
 	mkdir -p proto/wedge-api
 	cp -r ../protobuf/* proto/wedge-api/
 
