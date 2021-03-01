@@ -21,10 +21,41 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'Z#github.com/Wappsto/wedge-api/go/slx',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\tslx.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"1\n\x04Meta\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04type\x18\x02 \x01(\t\x12\x0f\n\x07version\x18\x03 \x01(\t\"\x83\x01\n\x05State\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\t\x12\x0c\n\x04type\x18\x02 \x01(\t\x12-\n\ttimestamp\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x0e\n\x06status\x18\x04 \x01(\t\x12\x13\n\x04meta\x18\x05 \x01(\x0b\x32\x05.Meta\x12\n\n\x02id\x18\x06 \x01(\r\"\xa8\x01\n\x06Number\x12\x0b\n\x03min\x18\x01 \x01(\x02\x12\x0b\n\x03max\x18\x02 \x01(\x02\x12\x0c\n\x04step\x18\x03 \x01(\x02\x12\x0c\n\x04unit\x18\x04 \x01(\t\x12\x15\n\rsi_conversion\x18\x05 \x01(\t\x12\x17\n\x0fordered_mapping\x18\x06 \x01(\x08\x12\x17\n\x0fmeaningful_zero\x18\x07 \x01(\x08\x12\x1f\n\x07mapping\x18\x08 \x01(\x0e\x32\x0e.NumberMapping\"\'\n\x06String\x12\x0b\n\x03max\x18\x01 \x01(\x02\x12\x10\n\x08\x65ncoding\x18\x02 \x01(\t\"%\n\x04\x42lob\x12\x0b\n\x03max\x18\x01 \x01(\x02\x12\x10\n\x08\x65ncoding\x18\x02 \x01(\t\"\x17\n\x04Info\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\"\x8f\x02\n\x05Value\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0c\n\x04type\x18\x02 \x01(\t\x12\x0e\n\x06period\x18\x03 \x01(\t\x12\r\n\x05\x64\x65lta\x18\x04 \x01(\t\x12\x12\n\npermission\x18\x05 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x06 \x01(\t\x12\x0e\n\x06status\x18\x07 \x01(\t\x12\x17\n\x06number\x18\x08 \x01(\x0b\x32\x07.Number\x12\x17\n\x06string\x18\t \x01(\x0b\x32\x07.String\x12\x13\n\x04\x62lob\x18\n \x01(\x0b\x32\x05.Blob\x12\x15\n\x05state\x18\x0b \x03(\x0b\x32\x06.State\x12\x13\n\x04info\x18\x0c \x01(\x0b\x32\x05.Info\x12\x13\n\x04meta\x18\r \x01(\x0b\x32\x05.Meta\x12\n\n\x02id\x18\x0e \x01(\r\"\xa0\x02\n\x06\x44\x65vice\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x14\n\x0cmanufacturer\x18\x02 \x01(\t\x12\x0f\n\x07product\x18\x03 \x01(\t\x12\x0f\n\x07version\x18\x04 \x01(\t\x12\x0e\n\x06serial\x18\x05 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x06 \x01(\t\x12\x10\n\x08protocol\x18\x07 \x01(\t\x12\x15\n\rcommunication\x18\x08 \x01(\t\x12\x17\n\x0f\x63ontrol_timeout\x18\t \x01(\r\x12\x1c\n\x14\x63ontrol_when_offline\x18\n \x01(\x08\x12\x15\n\x05value\x18\x0b \x03(\x0b\x32\x06.Value\x12\x13\n\x04info\x18\x0c \x01(\x0b\x32\x05.Info\x12\x13\n\x04meta\x18\r \x01(\x0b\x32\x05.Meta\x12\n\n\x02id\x18\x0e \x01(\r* \n\rNumberMapping\x12\x07\n\x03off\x10\x00\x12\x06\n\x02on\x10\x01\x42%Z#github.com/Wappsto/wedge-api/go/slxb\x06proto3'
+  serialized_pb=b'\n\tslx.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"1\n\x04Meta\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04type\x18\x02 \x01(\t\x12\x0f\n\x07version\x18\x03 \x01(\t\"\x8a\x01\n\x05State\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\t\x12\x13\n\x04type\x18\x02 \x01(\x0e\x32\x05.Type\x12-\n\ttimestamp\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x0e\n\x06status\x18\x04 \x01(\t\x12\x13\n\x04meta\x18\x05 \x01(\x0b\x32\x05.Meta\x12\n\n\x02id\x18\x06 \x01(\r\"\xa8\x01\n\x06Number\x12\x0b\n\x03min\x18\x01 \x01(\x02\x12\x0b\n\x03max\x18\x02 \x01(\x02\x12\x0c\n\x04step\x18\x03 \x01(\x02\x12\x0c\n\x04unit\x18\x04 \x01(\t\x12\x15\n\rsi_conversion\x18\x05 \x01(\t\x12\x17\n\x0fordered_mapping\x18\x06 \x01(\x08\x12\x17\n\x0fmeaningful_zero\x18\x07 \x01(\x08\x12\x1f\n\x07mapping\x18\x08 \x01(\x0e\x32\x0e.NumberMapping\"\'\n\x06String\x12\x0b\n\x03max\x18\x01 \x01(\x02\x12\x10\n\x08\x65ncoding\x18\x02 \x01(\t\"%\n\x04\x42lob\x12\x0b\n\x03max\x18\x01 \x01(\x02\x12\x10\n\x08\x65ncoding\x18\x02 \x01(\t\"\x17\n\x04Info\x12\x0f\n\x07\x65nabled\x18\x01 \x01(\x08\"\x8f\x02\n\x05Value\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0c\n\x04type\x18\x02 \x01(\t\x12\x0e\n\x06period\x18\x03 \x01(\t\x12\r\n\x05\x64\x65lta\x18\x04 \x01(\t\x12\x12\n\npermission\x18\x05 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x06 \x01(\t\x12\x0e\n\x06status\x18\x07 \x01(\t\x12\x17\n\x06number\x18\x08 \x01(\x0b\x32\x07.Number\x12\x17\n\x06string\x18\t \x01(\x0b\x32\x07.String\x12\x13\n\x04\x62lob\x18\n \x01(\x0b\x32\x05.Blob\x12\x15\n\x05state\x18\x0b \x03(\x0b\x32\x06.State\x12\x13\n\x04info\x18\x0c \x01(\x0b\x32\x05.Info\x12\x13\n\x04meta\x18\r \x01(\x0b\x32\x05.Meta\x12\n\n\x02id\x18\x0e \x01(\r\"\xa0\x02\n\x06\x44\x65vice\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x14\n\x0cmanufacturer\x18\x02 \x01(\t\x12\x0f\n\x07product\x18\x03 \x01(\t\x12\x0f\n\x07version\x18\x04 \x01(\t\x12\x0e\n\x06serial\x18\x05 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x06 \x01(\t\x12\x10\n\x08protocol\x18\x07 \x01(\t\x12\x15\n\rcommunication\x18\x08 \x01(\t\x12\x17\n\x0f\x63ontrol_timeout\x18\t \x01(\r\x12\x1c\n\x14\x63ontrol_when_offline\x18\n \x01(\x08\x12\x15\n\x05value\x18\x0b \x03(\x0b\x32\x06.Value\x12\x13\n\x04info\x18\x0c \x01(\x0b\x32\x05.Info\x12\x13\n\x04meta\x18\r \x01(\x0b\x32\x05.Meta\x12\n\n\x02id\x18\x0e \x01(\r*/\n\x04Type\x12\x0e\n\nTYPE_UNSET\x10\x00\x12\n\n\x06Report\x10\x01\x12\x0b\n\x07\x43ontrol\x10\x02* \n\rNumberMapping\x12\x07\n\x03off\x10\x00\x12\x06\n\x02on\x10\x01\x42%Z#github.com/Wappsto/wedge-api/go/slxb\x06proto3'
   ,
   dependencies=[google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
 
+_TYPE = _descriptor.EnumDescriptor(
+  name='Type',
+  full_name='Type',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='TYPE_UNSET', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='Report', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='Control', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=1079,
+  serialized_end=1126,
+)
+_sym_db.RegisterEnumDescriptor(_TYPE)
+
+Type = enum_type_wrapper.EnumTypeWrapper(_TYPE)
 _NUMBERMAPPING = _descriptor.EnumDescriptor(
   name='NumberMapping',
   full_name='NumberMapping',
@@ -45,12 +76,15 @@ _NUMBERMAPPING = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1072,
-  serialized_end=1104,
+  serialized_start=1128,
+  serialized_end=1160,
 )
 _sym_db.RegisterEnumDescriptor(_NUMBERMAPPING)
 
 NumberMapping = enum_type_wrapper.EnumTypeWrapper(_NUMBERMAPPING)
+TYPE_UNSET = 0
+Report = 1
+Control = 2
 off = 0
 on = 1
 
@@ -119,8 +153,8 @@ _STATE = _descriptor.Descriptor(
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='type', full_name='State.type', index=1,
-      number=2, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
+      number=2, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -165,7 +199,7 @@ _STATE = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=98,
-  serialized_end=229,
+  serialized_end=236,
 )
 
 
@@ -245,8 +279,8 @@ _NUMBER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=232,
-  serialized_end=400,
+  serialized_start=239,
+  serialized_end=407,
 )
 
 
@@ -284,8 +318,8 @@ _STRING = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=402,
-  serialized_end=441,
+  serialized_start=409,
+  serialized_end=448,
 )
 
 
@@ -323,8 +357,8 @@ _BLOB = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=443,
-  serialized_end=480,
+  serialized_start=450,
+  serialized_end=487,
 )
 
 
@@ -355,8 +389,8 @@ _INFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=482,
-  serialized_end=505,
+  serialized_start=489,
+  serialized_end=512,
 )
 
 
@@ -478,8 +512,8 @@ _VALUE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=508,
-  serialized_end=779,
+  serialized_start=515,
+  serialized_end=786,
 )
 
 
@@ -601,10 +635,11 @@ _DEVICE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=782,
-  serialized_end=1070,
+  serialized_start=789,
+  serialized_end=1077,
 )
 
+_STATE.fields_by_name['type'].enum_type = _TYPE
 _STATE.fields_by_name['timestamp'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _STATE.fields_by_name['meta'].message_type = _META
 _NUMBER.fields_by_name['mapping'].enum_type = _NUMBERMAPPING
@@ -625,6 +660,7 @@ DESCRIPTOR.message_types_by_name['Blob'] = _BLOB
 DESCRIPTOR.message_types_by_name['Info'] = _INFO
 DESCRIPTOR.message_types_by_name['Value'] = _VALUE
 DESCRIPTOR.message_types_by_name['Device'] = _DEVICE
+DESCRIPTOR.enum_types_by_name['Type'] = _TYPE
 DESCRIPTOR.enum_types_by_name['NumberMapping'] = _NUMBERMAPPING
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 

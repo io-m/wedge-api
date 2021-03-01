@@ -13,6 +13,7 @@ service Wedge {
   rpc SetDevice (SetDeviceRequest) returns (Replay) {}
   rpc SetValue (SetValueRequest) returns (Replay) {}
   rpc SetState (SetStateRequest) returns (Replay) {}
+  rpc GetModel (GetModelRequest) returns (Model) {}
   rpc GetControl(GetControlRequest) returns (Control) {}
 }
 
@@ -29,6 +30,10 @@ message Model {
 // Create/Update all node data model
 message SetModelRequest {
     Model model = 1;
+}
+
+message GetModelRequest {
+    NodeIdentity node = 1;
 }
 
 message SetDeviceRequest {
