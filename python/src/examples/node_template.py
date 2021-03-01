@@ -20,10 +20,6 @@ CHANNEL_OPTIONS = [('grpc.lb_policy_name', 'pick_first'),
                    ('grpc.keepalive_timeout_ms', 10000)]
 
 
-def signal_handler(signal, frame):
-    sys.exit(0)
-
-
 """
 Uplink class holds all remote Wedge Methods
 """
@@ -75,6 +71,13 @@ class Uplink:
     def __init__(self, stub):
         logging.info("Initialize Uplink object.")
         self.stub = stub
+        signal.signal(signal.SIGINT, self.cancel_request)
+
+    def cancel_request(self, signum, frame):
+        print("")
+        print("Got signal interrupt. Exiting!")
+        self.future.cancel()
+        sys.exit(0)
 
     async def SetModel(self, model):
         # metadata is optional, it just for test purpose.
@@ -86,7 +89,8 @@ class Uplink:
         return await self.stub.SetState(request)
 
     async def GetControl(self, request):
-        return await self.stub.GetControl(request)
+        self.future = self.stub.GetControl(request)
+        return await self.future
 
 
 """
@@ -128,7 +132,7 @@ async def driverLoop(uplink):
         )
         resp = await uplink.SetState(req)
         logging.info("Response: {}".format(resp))
-        await asyncio.sleep(5)
+        await asyncio.sleep(15)
 
 
 async def main() -> None:
@@ -139,7 +143,7 @@ async def main() -> None:
         await asyncio.gather(driverLoop(uplink), listen(uplink))
 
 if __name__ == '__main__':
-    signal.signal(signal.SIGINT, signal_handler)
+    # signal.signal(signal.SIGINT, signal_handler)
     logging.basicConfig(level=logging.INFO)
 
     asyncio.run(main())

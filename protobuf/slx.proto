@@ -9,11 +9,16 @@ message Meta {
     string version = 3;
 }
 
+enum Type {
+    TYPE_UNSET = 0;
+    Report = 1;
+    Control = 2;
+}
+
 message State {
     string data = 1;
-    string type = 2;
+    Type type = 2;
     google.protobuf.Timestamp timestamp = 3;
- //    string timestamp = 3;
     string status = 4;
     Meta meta = 5;
     uint32 id = 6;
@@ -49,14 +54,6 @@ message Info {
     bool enabled = 1;
 }
 
-/*
- *enum ValueStatus {
- *    ok = 0;
- *    update = 1;
- *    pending = 2;
- *}
- */
-
 message Value {
     string name = 1;
     string type = 2;
@@ -90,5 +87,3 @@ message Device {
     Meta meta = 13;
     uint32 id = 14;
 }
-
-

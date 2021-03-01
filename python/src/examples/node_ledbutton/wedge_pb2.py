@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'Z%github.com/Wappsto/wedge-api/go/wedge',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0bwedge.proto\x12\x05wedge\x1a\tslx.proto\"\x1a\n\x0cNodeIdentity\x12\n\n\x02id\x18\x01 \x01(\t\"C\n\x05Model\x12!\n\x04node\x18\x01 \x01(\x0b\x32\x13.wedge.NodeIdentity\x12\x17\n\x06\x64\x65vice\x18\x02 \x03(\x0b\x32\x07.Device\".\n\x0fSetModelRequest\x12\x1b\n\x05model\x18\x01 \x01(\x0b\x32\x0c.wedge.Model\"4\n\x0fGetModelRequest\x12!\n\x04node\x18\x01 \x01(\x0b\x32\x13.wedge.NodeIdentity\"N\n\x10SetDeviceRequest\x12!\n\x04node\x18\x01 \x01(\x0b\x32\x13.wedge.NodeIdentity\x12\x17\n\x06\x64\x65vice\x18\x02 \x01(\x0b\x32\x07.Device\"^\n\x0fSetValueRequest\x12!\n\x04node\x18\x01 \x01(\x0b\x32\x13.wedge.NodeIdentity\x12\x11\n\tdevice_id\x18\x02 \x01(\r\x12\x15\n\x05value\x18\x03 \x01(\x0b\x32\x06.Value\"p\n\x0fSetStateRequest\x12!\n\x04node\x18\x01 \x01(\x0b\x32\x13.wedge.NodeIdentity\x12\x11\n\tdevice_id\x18\x02 \x01(\r\x12\x10\n\x08value_id\x18\x03 \x01(\r\x12\x15\n\x05state\x18\x04 \x01(\x0b\x32\x06.State\"6\n\x11GetControlRequest\x12!\n\x04node\x18\x01 \x01(\x0b\x32\x13.wedge.NodeIdentity\"I\n\x0bUpdateState\x12\x15\n\x05state\x18\x01 \x01(\x0b\x32\x06.State\x12\x11\n\tdevice_id\x18\x02 \x01(\r\x12\x10\n\x08value_id\x18\x03 \x01(\r\"!\n\x0c\x44\x65leteDevice\x12\x11\n\tdevice_id\x18\x01 \x01(\r\"R\n\x07\x43ontrol\x12\"\n\x06update\x18\x01 \x01(\x0b\x32\x12.wedge.UpdateState\x12#\n\x06\x64\x65lete\x18\x02 \x01(\x0b\x32\x13.wedge.DeleteDevice\"&\n\x05\x45rror\x12\x0f\n\x07message\x18\x01 \x01(\t\x12\x0c\n\x04\x63ode\x18\x02 \x01(\r\"1\n\x06Replay\x12\n\n\x02ok\x18\x01 \x01(\x08\x12\x1b\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x0c.wedge.Error2\xcb\x02\n\x05Wedge\x12\x33\n\x08SetModel\x12\x16.wedge.SetModelRequest\x1a\r.wedge.Replay\"\x00\x12\x35\n\tSetDevice\x12\x17.wedge.SetDeviceRequest\x1a\r.wedge.Replay\"\x00\x12\x33\n\x08SetValue\x12\x16.wedge.SetValueRequest\x1a\r.wedge.Replay\"\x00\x12\x33\n\x08SetState\x12\x16.wedge.SetStateRequest\x1a\r.wedge.Replay\"\x00\x12\x32\n\x08GetModel\x12\x16.wedge.GetModelRequest\x1a\x0c.wedge.Model\"\x00\x12\x38\n\nGetControl\x12\x18.wedge.GetControlRequest\x1a\x0e.wedge.Control\"\x00\x42\'Z%github.com/Wappsto/wedge-api/go/wedgeP\x00\x62\x06proto3'
+  serialized_pb=b'\n\x0bwedge.proto\x12\x05wedge\x1a\tslx.proto\"\x1a\n\x0cNodeIdentity\x12\n\n\x02id\x18\x01 \x01(\t\"C\n\x05Model\x12!\n\x04node\x18\x01 \x01(\x0b\x32\x13.wedge.NodeIdentity\x12\x17\n\x06\x64\x65vice\x18\x02 \x03(\x0b\x32\x07.Device\".\n\x0fSetModelRequest\x12\x1b\n\x05model\x18\x01 \x01(\x0b\x32\x0c.wedge.Model\"N\n\x10SetDeviceRequest\x12!\n\x04node\x18\x01 \x01(\x0b\x32\x13.wedge.NodeIdentity\x12\x17\n\x06\x64\x65vice\x18\x02 \x01(\x0b\x32\x07.Device\"^\n\x0fSetValueRequest\x12!\n\x04node\x18\x01 \x01(\x0b\x32\x13.wedge.NodeIdentity\x12\x11\n\tdevice_id\x18\x02 \x01(\r\x12\x15\n\x05value\x18\x03 \x01(\x0b\x32\x06.Value\"p\n\x0fSetStateRequest\x12!\n\x04node\x18\x01 \x01(\x0b\x32\x13.wedge.NodeIdentity\x12\x11\n\tdevice_id\x18\x02 \x01(\r\x12\x10\n\x08value_id\x18\x03 \x01(\r\x12\x15\n\x05state\x18\x04 \x01(\x0b\x32\x06.State\"6\n\x11GetControlRequest\x12!\n\x04node\x18\x01 \x01(\x0b\x32\x13.wedge.NodeIdentity\"I\n\x0bUpdateState\x12\x15\n\x05state\x18\x01 \x01(\x0b\x32\x06.State\x12\x11\n\tdevice_id\x18\x02 \x01(\r\x12\x10\n\x08value_id\x18\x03 \x01(\r\"!\n\x0c\x44\x65leteDevice\x12\x11\n\tdevice_id\x18\x01 \x01(\r\"R\n\x07\x43ontrol\x12\"\n\x06update\x18\x01 \x01(\x0b\x32\x12.wedge.UpdateState\x12#\n\x06\x64\x65lete\x18\x02 \x01(\x0b\x32\x13.wedge.DeleteDevice\"&\n\x05\x45rror\x12\x0f\n\x07message\x18\x01 \x01(\t\x12\x0c\n\x04\x63ode\x18\x02 \x01(\r\"1\n\x06Replay\x12\n\n\x02ok\x18\x01 \x01(\x08\x12\x1b\n\x05\x65rror\x18\x02 \x01(\x0b\x32\x0c.wedge.Error2\x97\x02\n\x05Wedge\x12\x33\n\x08SetModel\x12\x16.wedge.SetModelRequest\x1a\r.wedge.Replay\"\x00\x12\x35\n\tSetDevice\x12\x17.wedge.SetDeviceRequest\x1a\r.wedge.Replay\"\x00\x12\x33\n\x08SetValue\x12\x16.wedge.SetValueRequest\x1a\r.wedge.Replay\"\x00\x12\x33\n\x08SetState\x12\x16.wedge.SetStateRequest\x1a\r.wedge.Replay\"\x00\x12\x38\n\nGetControl\x12\x18.wedge.GetControlRequest\x1a\x0e.wedge.Control\"\x00\x42\'Z%github.com/Wappsto/wedge-api/go/wedgeP\x00\x62\x06proto3'
   ,
   dependencies=[slx__pb2.DESCRIPTOR,],
   public_dependencies=[slx__pb2.DESCRIPTOR,])
@@ -132,38 +132,6 @@ _SETMODELREQUEST = _descriptor.Descriptor(
 )
 
 
-_GETMODELREQUEST = _descriptor.Descriptor(
-  name='GetModelRequest',
-  full_name='wedge.GetModelRequest',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  create_key=_descriptor._internal_create_key,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='node', full_name='wedge.GetModelRequest.node', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=178,
-  serialized_end=230,
-)
-
-
 _SETDEVICEREQUEST = _descriptor.Descriptor(
   name='SetDeviceRequest',
   full_name='wedge.SetDeviceRequest',
@@ -198,8 +166,8 @@ _SETDEVICEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=232,
-  serialized_end=310,
+  serialized_start=178,
+  serialized_end=256,
 )
 
 
@@ -244,8 +212,8 @@ _SETVALUEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=312,
-  serialized_end=406,
+  serialized_start=258,
+  serialized_end=352,
 )
 
 
@@ -297,8 +265,8 @@ _SETSTATEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=408,
-  serialized_end=520,
+  serialized_start=354,
+  serialized_end=466,
 )
 
 
@@ -329,8 +297,8 @@ _GETCONTROLREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=522,
-  serialized_end=576,
+  serialized_start=468,
+  serialized_end=522,
 )
 
 
@@ -375,8 +343,8 @@ _UPDATESTATE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=578,
-  serialized_end=651,
+  serialized_start=524,
+  serialized_end=597,
 )
 
 
@@ -407,8 +375,8 @@ _DELETEDEVICE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=653,
-  serialized_end=686,
+  serialized_start=599,
+  serialized_end=632,
 )
 
 
@@ -446,8 +414,8 @@ _CONTROL = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=688,
-  serialized_end=770,
+  serialized_start=634,
+  serialized_end=716,
 )
 
 
@@ -485,8 +453,8 @@ _ERROR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=772,
-  serialized_end=810,
+  serialized_start=718,
+  serialized_end=756,
 )
 
 
@@ -524,14 +492,13 @@ _REPLAY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=812,
-  serialized_end=861,
+  serialized_start=758,
+  serialized_end=807,
 )
 
 _MODEL.fields_by_name['node'].message_type = _NODEIDENTITY
 _MODEL.fields_by_name['device'].message_type = slx__pb2._DEVICE
 _SETMODELREQUEST.fields_by_name['model'].message_type = _MODEL
-_GETMODELREQUEST.fields_by_name['node'].message_type = _NODEIDENTITY
 _SETDEVICEREQUEST.fields_by_name['node'].message_type = _NODEIDENTITY
 _SETDEVICEREQUEST.fields_by_name['device'].message_type = slx__pb2._DEVICE
 _SETVALUEREQUEST.fields_by_name['node'].message_type = _NODEIDENTITY
@@ -546,7 +513,6 @@ _REPLAY.fields_by_name['error'].message_type = _ERROR
 DESCRIPTOR.message_types_by_name['NodeIdentity'] = _NODEIDENTITY
 DESCRIPTOR.message_types_by_name['Model'] = _MODEL
 DESCRIPTOR.message_types_by_name['SetModelRequest'] = _SETMODELREQUEST
-DESCRIPTOR.message_types_by_name['GetModelRequest'] = _GETMODELREQUEST
 DESCRIPTOR.message_types_by_name['SetDeviceRequest'] = _SETDEVICEREQUEST
 DESCRIPTOR.message_types_by_name['SetValueRequest'] = _SETVALUEREQUEST
 DESCRIPTOR.message_types_by_name['SetStateRequest'] = _SETSTATEREQUEST
@@ -578,13 +544,6 @@ SetModelRequest = _reflection.GeneratedProtocolMessageType('SetModelRequest', (_
   # @@protoc_insertion_point(class_scope:wedge.SetModelRequest)
   })
 _sym_db.RegisterMessage(SetModelRequest)
-
-GetModelRequest = _reflection.GeneratedProtocolMessageType('GetModelRequest', (_message.Message,), {
-  'DESCRIPTOR' : _GETMODELREQUEST,
-  '__module__' : 'wedge_pb2'
-  # @@protoc_insertion_point(class_scope:wedge.GetModelRequest)
-  })
-_sym_db.RegisterMessage(GetModelRequest)
 
 SetDeviceRequest = _reflection.GeneratedProtocolMessageType('SetDeviceRequest', (_message.Message,), {
   'DESCRIPTOR' : _SETDEVICEREQUEST,
@@ -659,8 +618,8 @@ _WEDGE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=864,
-  serialized_end=1195,
+  serialized_start=810,
+  serialized_end=1089,
   methods=[
   _descriptor.MethodDescriptor(
     name='SetModel',
@@ -703,19 +662,9 @@ _WEDGE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
-    name='GetModel',
-    full_name='wedge.Wedge.GetModel',
-    index=4,
-    containing_service=None,
-    input_type=_GETMODELREQUEST,
-    output_type=_MODEL,
-    serialized_options=None,
-    create_key=_descriptor._internal_create_key,
-  ),
-  _descriptor.MethodDescriptor(
     name='GetControl',
     full_name='wedge.Wedge.GetControl',
-    index=5,
+    index=4,
     containing_service=None,
     input_type=_GETCONTROLREQUEST,
     output_type=_CONTROL,
